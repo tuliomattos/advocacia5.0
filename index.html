@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advocacia 5.0 - Método Túlio Mattos</title>
+    <style>
+        /* RESET E CONFIGURAÇÕES GERAIS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* CORES PROFISSIONAIS */
+        :root {
+            --primary-blue: #1e3c72;
+            --secondary-blue: #2a5298;
+            --accent-gold: #d4af37;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --dark-text: #2d3748;
+        }
+
+        /* BOTÕES */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn--primary {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        .btn--primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn--large {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+        }
+
+        .btn--full {
+            width: 100%;
+        }
+
+        /* HEADER */
+        .header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .nav__logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-gold);
+            border-radius: 5px;
+        }
+
+        .nav__menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav__link {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav__link:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav__cta {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            padding: 120px 0 80px;
+            margin-top: 60px;
+        }
+
+        .hero__content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero__title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .text-gradient {
+            background: linear-gradient(45deg, var(--accent-gold), #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero__subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero__stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat__number {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        .stat__text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .hero__guarantee {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .profile-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: var(--dark-text);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: block;
+            background: #ddd;
+            object-fit: cover;
+        }
+
+        .profile-info h3 {
+            text-align: center;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-info p {
+            text-align: center;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .profile-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .badge {
+            background: var(--light-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        /* SESSÕES GERAIS */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--dark-text);
+            opacity: 0.8;
+        }
+
+        /* PROBLEMS SECTION */
+        .problems {
+            background: var(--light-bg);
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .problem-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* SOLUTION SECTION */
+        .solution {
+            background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+            color: var(--white);
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .solution-story p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .solution-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .solution-list li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            color: var(--dark-text);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .testimonial-content p {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+
+        .testimonial-author strong {
+            color: var(--primary-blue);
+        }
+
+        /* METHOD SECTION */
+        .method-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .step-number {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .step-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .step-content p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .step-content ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .step-content li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .step-content li:before {
+            content: "✓";
+            color: var(--accent-gold);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* RESULTS SECTION */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .result-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .result-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .result-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* CTA SECTION */
+        .cta {
+            background: var(--light-bg);
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .cta-content > p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .cta-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .feature {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        .cta-security {
+            margin-top: 2rem;
+            opacity: 0.8;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: var(--dark-text);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-info h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-copy {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.6;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-text);
+        }
+
+        .modal-content h2 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .modal-content > p {
+            text-align: center;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .hero__content,
+            .solution-content,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero__title {
+                font-size: 2rem;
+            }
+
+            .hero__stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav__menu {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .step {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .step-number {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <!-- SUA LOGO AQUI -->
+                <div class="logo"></div>
+                <span>Advocacia 5.0</span>
+            </div>
+            <div class="nav__menu">
+                <a href="#inicio" class="nav__link">Início</a>
+                <a href="#problema" class="nav__link">O Problema</a>
+                <a href="#solucao" class="nav__link">Solução</a>
+                <a href="#metodo" class="nav__link">Método</a>
+                <a href="#resultados" class="nav__link">Resultados</a>
+            </div>
+            <a href="#cta" class="nav__cta">Quero o Método</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero__content">
+                <div class="hero__text">
+                    <h1 class="hero__title">
+                        Pare de Perder Tempo com 
+                        <span class="text-gradient">Audiências</span> e 
+                        Comece a Atuar Como um 
+                        <span class="text-gradient">Verdadeiro Estrategista Jurídico</span>
+                    </h1>
+                    <p class="hero__subtitle">
+                        Método Comprovado Para Advogados Que Querem Processos Previsíveis, 
+                        Clientela Qualificada e Paz de Espírito - Sem Precisar de Audiências
+                    </p>
+                    <div class="hero__stats">
+                        <div class="stat">
+                            <span class="stat__number">+80%</span>
+                            <span class="stat__text">Mais produtividade</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">+3x</span>
+                            <span class="stat__text">Mais lucratividade</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number">0</span>
+                            <span class="stat__text">Audiências</span>
+                        </div>
+                    </div>
+                    <div class="hero__cta">
+                        <button class="btn btn--primary btn--large" onclick="openModal()">
+                            Quero Conhecer o Método
+                        </button>
+                        <div class="hero__guarantee">
+                            <span>✅ 7 dias de garantia</span>
+                            <span>🎯 Método 100% aplicável</span>
+                            <span>⚖️ Feito por advogado para advogados</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__image">
+                    <div class="profile-card">
+                        <!-- SUA FOTO AQUI - substitua pelo caminho da sua imagem -->
+                        <div class="profile-img"></div>
+                        <div class="profile-info">
+                            <h3>Túlio Mattos</h3>
+                            <p>Advogado & Criador do Método</p>
+                            <div class="profile-badges">
+                                <span class="badge">OAB/SP 000.000</span>
+                                <span class="badge">+10 anos experiência</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problema Section -->
+    <section id="problema" class="problems">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Você Se Identifica Com Alguma Dessas Situações?</h2>
+                <p class="section-subtitle">A realidade da maioria dos advogados hoje</p>
+            </div>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">⏰</div>
+                    <h3>Perda de Tempo em Audiências</h3>
+                    <p>Ficar horas no fórum para resolver em minutos o que poderia ser feito em escritório, sacrificando produtividade e vida pessoal</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">😫</div>
+                    <h3>Desgaste Emocional Constante</h3>
+                    <p>Lidar com testemunhas mentirosas, versões conflitantes e o estresse do contraditório dia após dia</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">📚</div>
+                    <h3>Sobrecarga Mental</h3>
+                    <p>Precisar estudar processos completamente diferentes a cada caso, sem conseguir criar expertise em nenhuma área específica</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3>Lucro Imprevisível</h3>
+                    <p>Não saber quanto vai faturar no mês porque depende completamente de fatores fora do seu controle</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solução Section -->
+    <section id="solucao" class="solution">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h2 class="section-title">"Eu Era Como Você - Até Descobrir Como Transformar Minha Carreira"</h2>
+                    <div class="solution-story">
+                        <p>Me chamo <strong>Túlio Mattos</strong> e durante anos vivi essa rotina desgastante. Passava mais tempo no fórum do que no meu escritório, lidava com situações estressantes diariamente e não via evolução na minha carreira.</p>
+                        <p>Até que descobri um segredo: existem <strong>nichos jurídicos específicos</strong> onde as audiências simplesmente não são necessárias. Processos baseados exclusivamente em <strong>questão de direito</strong>, onde o juiz decide analisando documentos, não testemunhas.</p>
+                        <p>Desenvolvi um método que me permitiu:</p>
+                        <ul class="solution-list">
+                            <li>✅ <strong>Triplicar minha produtividade</strong></li>
+                            <li>✅ <strong>Ter previsibilidade total de renda</strong></li>
+                            <li>✅ <strong>Trabalhar apenas com processos estratégicos</strong></li>
+                            <li>✅ <strong>Recuperar meu tempo e paz mental</strong></li>
+                        </ul>
+                        <p>Agora, quero te ensinar esse mesmo método que transformou completamente minha carreira e pode transformar a sua também.</p>
+                    </div>
+                </div>
+                <div class="solution-image">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Depois de aplicar o método, minha produtividade aumentou 300% e finalmente tenho controle sobre minha carreira."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Túlio Mattos</strong>
+                            <span>Criador do Método</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Método Section -->
+    <section id="metodo" class="method">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">O Método "Advocacia 5.0" em 3 Pilares Simples</h2>
+                <p class="section-subtitle">Um sistema passo a passo comprovado</p>
+            </div>
+            <div class="method-steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Identificação de Nichos Lucrativos</h3>
+                        <p>Aprenda a identificar e selecionar processos baseados apenas em questão de direito, onde audiências são desnecessárias por lei. Domine a arte de escolher os casos certos.</p>
+                        <ul>
+                            <li>Mapeamento de áreas jurídicas estratégicas</li>
+                            <li>Critérios de seleção de processos</li>
+                            <li>Análise de viabilidade jurídica</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Metodologia Comprovada de Trabalho</h3>
+                        <p>Sistema completo desde a triagem do cliente até a sentença, com documentos e petições padronizadas que aceleram seu trabalho em 80%.</p>
+                        <ul>
+                            <li>Fluxo de trabalho otimizado</li>
+                            <li>Modelos de petições pré-prontos</li>
+                            <li>Gestão eficiente de processos</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Atração de Clientes Qualificados</h3>
+                        <p>Estratégias para atrair os clientes certos que valorizam uma advocacia estratégica e eficiente, dispostos a pagar por resultados.</p>
+                        <ul>
+                            <li>Posicionamento de mercado</li>
+                            <li>Captação de clientes ideais</li>
+                            <li>Precisação estratégica</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resultados Section -->
+    <section id="resultados" class="results">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">O Que Você Vai Conquistar</h2>
+                <p class="section-subtitle">Resultados reais que transformarão sua carreira</p>
+            </div>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-icon">⏰</div>
+                    <h3>Mais Tempo Livre</h3>
+                    <p>Reduza em 80% o tempo gasto em fóruns e audiências, recuperando sua vida pessoal e liberdade</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon">💼</div>
+                    <h3>Processos Previsíveis</h3>
+                    <p>Tenha controle total sobre prazos e resultados, com processos que seguem um fluxo determinado</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon">📈</div>
+                    <h3>Lucro Consistente</h3>
+                    <p>Fature mais trabalhando menos, com processos eficientes e clientes que valorizam seu trabalho</p>
+                </div>
+                <div class="result-card">
+                    <div class="result-icon">😊</div>
+                    <h3>Paz Mental</h3>
+                    <p>Elimine o estresse das audiências e testemunhas imprevisíveis, trabalhando com tranquilidade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="cta" class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Pronto Para Transformar Sua Carreira?</h2>
+                <p>Junte-se a advogados que já descobriram o caminho para uma advocacia mais tranquila, lucrativa e previsível</p>
+                <div class="cta-features">
+                    <div class="feature">✅ Método 100% Aplicável</div>
+                    <div class="feature">✅ Suporte Personalizado</div>
+                    <div class="feature">✅ 7 Dias de Garantia</div>
+                    <div class="feature">✅ Acesso Vitalício</div>
+                </div>
+                <button class="btn btn--primary btn--large" onclick="openModal()">
+                    Quero Me Inscrever no Método
+                </button>
+                <div class="cta-security">
+                    <p>🔒 Pagamento 100% seguro via PagSeguro, Mercado Pago ou Pix</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Túlio Mattos - Advocacia 5.0</h3>
+                    <p>Transformando a carreira de advogados através de métodos comprovados e estratégias eficientes.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Política de Privacidade</a>
+                    <a href="mailto:contato@advocacia5pontozero.com.br">Contato</a>
+                </div>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2024 Túlio Mattos - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <h2>Entre Para a Lista VIP</h2>
+            <p>Seja o primeiro a saber quando as vagas para o método "Advocacia 5.0" abrirem</p>
+            <form class="modal-form" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <input type="text" placeholder="Seu nome completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Seu melhor e-mail" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Seu WhatsApp (opcional)">
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="">Tempo de experiência</option>
+                        <option value="0-2">0-2 anos</option>
+                        <option value="3-5">3-5 anos</option>
+                        <option value="6-10">6-10 anos</option>
+                        <option value="10+">Mais de 10 anos</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">
+                    Quero Entrar na Lista VIP
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Funções do Modal
+        function openModal() {
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            alert('Obrigado pelo interesse! Entraremos em contato em breve com mais informações sobre o método "Advocacia 5.0".');
+            closeModal();
+        }
+
+        // Fechar modal clicando fora
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
