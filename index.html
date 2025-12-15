@@ -122,6 +122,17 @@
             box-shadow: var(--shadow);
         }
 
+        .btn-tertiary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-tertiary:hover {
+            background-color: #0088cc;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
         .btn-large {
             padding: 18px 40px;
             font-size: 1.1rem;
@@ -480,6 +491,14 @@
             font-weight: 500;
         }
 
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
         /* Footer */
         .footer {
             background-color: var(--dark-color);
@@ -625,6 +644,11 @@
             .hero-badges {
                 justify-content: center;
             }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
         @media (max-width: 768px) {
@@ -704,7 +728,7 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Transforme Sua Carreira com a <span class="text-accent">Advocacia 5.0</span></h1>
-                    <p>Método comprovado para Advogados que precisam de um sistema moderno de captação de leads com funil direcionado para o seu WhatsApp de processos que não necessitam de audiências.</p>
+                    <p>Método comprovado para advogados que precisam de um sistema moderno de captação de leads com funil direcionado para o seu WhatsApp de processos que não necessitam de audiências.</p>
                     <div class="hero-badges">
                         <div class="badge">
                             <i class="fas fa-chart-line"></i>
@@ -734,7 +758,7 @@
                             <p>Especialista em advocacia estratégica e processos sem audiências</p>
                             <div class="profile-badges">
                                 <span class="profile-badge">OAB/SP 347.117</span>
-                                <span class="profile-badge">+10 anos experiência</span>
+                                <span class="profile-badge">+10 anos de experiência</span>
                             </div>
                         </div>
                     </div>
@@ -792,7 +816,7 @@
                         <i class="fas fa-map-marked-alt"></i>
                     </div>
                     <h3>Plano</h3>
-                    <p>O Plano para sair de onde você está hoje é seguir exatamente os passos das aulas, não vai fazer nada mais que o necessário para aprender a atrair os clientes e com isso vai alcançar os mesmos resultados que os meus.</p>
+                    <p>O plano para sair de onde você está hoje é seguir exatamente os passos das aulas, não vai fazer nada mais que o necessário para aprender a atrair os clientes e com isso vai alcançar os mesmos resultados que os meus.</p>
                 </div>
                 
                 <div class="flow-arrow">
@@ -877,13 +901,13 @@
     <section id="testimonials" class="testimonials section-padding">
         <div class="container">
             <div class="section-title">
-                <h2>O Que Dizem Os Advogados Que Já Aplicaram</h2>
+                <h2>O Que Dizem os Advogados que Já Aplicaram</h2>
                 <p>Resultados reais de quem já transformou sua carreira</p>
             </div>
             <div class="testimonials-slider">
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        "Depois de aplicar o método, minha produtividade aumentou 300% e finalmente tenho controle sobre minha carreira. Trabalho menos e ganho mais, com processos previsíveis."
+                        "Depois de aplicar o método, minha produtividade aumentou mais de 100% e finalmente tenho controle sobre minha carreira. Trabalho menos e ganho mais, com processos previsíveis."
                     </div>
                     <div class="testimonial-author">
                         <div class="author-img">
@@ -909,6 +933,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Agradeço ao Túlio pelo método incrível! Reduzi minha jornada de trabalho para apenas 3 horas por dia e ainda assim consegui dobrar minha produção. Este método realmente transformou minha vida profissional."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <i class="fas fa-user" style="font-size: 2.5rem; line-height: 60px; color: #999;"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Dr. Rafael Mendes</h4>
+                            <p>Advogado Previdenciário - 5 anos de experiência</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -917,7 +955,7 @@
     <section id="cta" class="cta-section section-padding">
         <div class="container">
             <div class="cta-content">
-                <h2>Pronto Para a Próxima Evolução da Sua Carreira?</h2>
+                <h2>Pronto para a Próxima Evolução da Sua Carreira?</h2>
                 <p>Junte-se a advogados que já descobriram o caminho para uma advocacia mais tranquila, lucrativa e previsível com o método Advocacia 5.0</p>
                 
                 <div class="cta-features">
@@ -935,9 +973,15 @@
                     </div>
                 </div>
                 
-                <a href="https://go.hotmart.com/V103413532P" target="_blank" class="btn btn-primary btn-large">
-                    <i class="fas fa-gem"></i> Quero Comprar o Curso Agora
-                </a>
+                <div class="cta-buttons">
+                    <a href="https://go.hotmart.com/V103413532P" target="_blank" class="btn btn-primary btn-large">
+                        <i class="fas fa-gem"></i> Quero Comprar o Curso Agora
+                    </a>
+                    
+                    <a href="https://tuliomattos.github.io/sistema_juridico/" target="_blank" class="btn btn-tertiary btn-large">
+                        <i class="fas fa-user-plus"></i> Programa de Cadastro de Cliente
+                    </a>
+                </div>
                 
                 <div style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">
                     <p><i class="fas fa-shield-alt"></i> Pagamento 100% seguro via PagSeguro, Mercado Pago ou Pix</p>
