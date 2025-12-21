@@ -21,6 +21,7 @@
             --medium-gray: #444444;         /* Cinza Médio */
             --light-gray: #F5F5F5;          /* Cinza Claro */
             --white: #FFFFFF;
+            --gold: #FFD700;                /* Dourado para botão especial */
             --shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             --shadow-strong: 0 8px 30px rgba(204, 0, 0, 0.15);
             --transition: all 0.3s ease;
@@ -134,18 +135,6 @@
             transform: translateY(-3px);
         }
 
-        .btn-tertiary {
-            background-color: transparent;
-            color: var(--secondary-color);
-            border: 2px solid var(--secondary-color);
-        }
-
-        .btn-tertiary:hover {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            transform: translateY(-3px);
-        }
-
         .btn-large {
             padding: 22px 50px;
             font-size: 1.3rem;
@@ -157,7 +146,7 @@
             margin: 10px 0;
         }
 
-        /* Faixa de Alerta URGENTE */
+        /* Faixa de Alerta URGENTE - CORRIGIDA PARA MOBILE */
         .alert-bar {
             background-color: var(--secondary-color);
             color: var(--white);
@@ -170,6 +159,15 @@
             z-index: 2000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
             animation: pulse 2s infinite;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .alert-bar {
+                padding: 10px 5px;
+                font-size: 0.8rem;
+                line-height: 1.3;
+            }
         }
 
         @keyframes pulse {
@@ -179,7 +177,7 @@
         }
 
         .alert-bar i {
-            margin-right: 10px;
+            margin-right: 8px;
             animation: bounce 1s infinite;
         }
 
@@ -188,7 +186,7 @@
             50% { transform: translateY(-3px); }
         }
 
-        /* Header Ajustado */
+        /* Header Ajustado - CORRIGIDO PARA MOBILE */
         .header {
             background-color: var(--white);
             box-shadow: var(--shadow);
@@ -198,20 +196,48 @@
             z-index: 1000;
         }
 
+        @media (max-width: 768px) {
+            .header {
+                top: 35px; /* Ajuste para mobile */
+            }
+        }
+
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 12px 0;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 8px 0;
+            }
+            
+            .navbar .btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
         }
 
         .logo {
             display: flex;
             align-items: center;
             font-weight: 900;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--primary-color);
             text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.2rem;
+            }
+            
+            .logo i {
+                margin-right: 5px;
+                font-size: 1.2rem;
+            }
         }
 
         .logo i {
@@ -221,10 +247,16 @@
 
         /* Seção Hero TOTALMENTE REESTRUTURADA */
         .hero {
-            padding: 200px 0 100px;
+            padding: 180px 0 80px;
             background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
             position: relative;
             overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 140px 0 50px;
+            }
         }
 
         .hero-content {
@@ -259,6 +291,16 @@
             border-radius: 2px;
         }
 
+        @media (max-width: 768px) {
+            .main-headline {
+                font-size: 2.2rem;
+            }
+            
+            .main-headline:after {
+                width: 150px;
+            }
+        }
+
         .subheadline {
             font-size: 1.5rem;
             color: var(--medium-gray);
@@ -267,6 +309,12 @@
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .subheadline {
+                font-size: 1.2rem;
+            }
         }
 
         /* Player de Vídeo EM DESTAQUE */
@@ -323,6 +371,14 @@
             transition: var(--transition);
         }
 
+        @media (max-width: 768px) {
+            .play-button {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+
         .play-button:hover {
             background: rgba(204, 0, 0, 1);
             transform: translate(-50%, -50%) scale(1.1);
@@ -346,6 +402,13 @@
             overflow: hidden;
         }
 
+        @media (max-width: 768px) {
+            .emotional-copy {
+                padding: 40px 0;
+                margin: 20px 0;
+            }
+        }
+
         .emotional-content {
             max-width: 800px;
             margin: 0 auto;
@@ -366,9 +429,21 @@
             opacity: 0.95;
         }
 
+        @media (max-width: 768px) {
+            .emotional-content p {
+                font-size: 1.1rem;
+            }
+        }
+
         /* Seção Lógica */
         .logic-section {
             padding: 80px 0;
+        }
+
+        @media (max-width: 768px) {
+            .logic-section {
+                padding: 60px 0;
+            }
         }
 
         .logic-content {
@@ -376,6 +451,12 @@
             grid-template-columns: 1fr 1fr;
             gap: 50px;
             align-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .logic-content {
+                grid-template-columns: 1fr;
+            }
         }
 
         .logic-text h2 {
@@ -410,10 +491,22 @@
             box-shadow: var(--shadow);
         }
 
+        @media (max-width: 768px) {
+            .logic-image {
+                padding: 25px;
+            }
+        }
+
         /* Seção Racional + Âncora */
         .rational-section {
             background: var(--light-gray);
             padding: 80px 0;
+        }
+
+        @media (max-width: 768px) {
+            .rational-section {
+                padding: 60px 0;
+            }
         }
 
         .rational-container {
@@ -429,6 +522,12 @@
             border-left: 6px solid var(--secondary-color);
         }
 
+        @media (max-width: 768px) {
+            .rational-box {
+                padding: 30px 20px;
+            }
+        }
+
         .bonus-anchor {
             background: linear-gradient(135deg, var(--secondary-color), #8B0000);
             color: white;
@@ -436,11 +535,99 @@
             border-radius: 10px;
             margin: 40px 0;
             text-align: center;
+            animation: pulse-red 2s infinite;
+        }
+
+        @keyframes pulse-red {
+            0% { box-shadow: 0 4px 20px rgba(204, 0, 0, 0.4); }
+            50% { box-shadow: 0 6px 25px rgba(204, 0, 0, 0.6); }
+            100% { box-shadow: 0 4px 20px rgba(204, 0, 0, 0.4); }
         }
 
         .bonus-anchor h3 {
             color: white;
             margin-bottom: 20px;
+        }
+
+        /* Botão Programa Gratuito - SUPER CHAMATIVO */
+        .program-button-container {
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .program-button {
+            background: linear-gradient(45deg, var(--gold), #FFC400, var(--gold));
+            background-size: 200% 200%;
+            color: #000 !important;
+            font-weight: 900;
+            border: 3px solid var(--gold);
+            padding: 25px 50px;
+            font-size: 1.4rem;
+            border-radius: 12px;
+            animation: gradientShift 3s infinite, pulse-gold-button 2s infinite;
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulse-gold-button {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .program-button:hover {
+            animation: none;
+            transform: scale(1.08) rotate(-1deg);
+            box-shadow: 0 10px 35px rgba(255, 215, 0, 0.8);
+        }
+
+        .program-button i {
+            margin-right: 15px;
+            animation: spin-fast 1s linear infinite;
+        }
+
+        @keyframes spin-fast {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .program-button:after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+
+        .program-button:hover:after {
+            left: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .program-button {
+                padding: 20px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .program-button i {
+                margin-right: 10px;
+            }
         }
 
         /* Seção Reafirmação */
@@ -449,6 +636,12 @@
             color: var(--white);
             padding: 80px 0;
             text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .reaffirmation {
+                padding: 60px 0;
+            }
         }
 
         .reaffirmation h2 {
@@ -463,6 +656,12 @@
             opacity: 0.9;
         }
 
+        @media (max-width: 768px) {
+            .reaffirmation p {
+                font-size: 1.1rem;
+            }
+        }
+
         .guarantee-badge {
             background: var(--secondary-color);
             color: white;
@@ -472,6 +671,7 @@
             align-items: center;
             font-weight: 700;
             margin: 20px 0;
+            animation: pulse 2s infinite;
         }
 
         .guarantee-badge i {
@@ -479,10 +679,57 @@
             font-size: 1.5rem;
         }
 
+        /* Contador - Efeito de Escassez */
+        .counter {
+            background: var(--primary-color);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px auto;
+            max-width: 500px;
+            text-align: center;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .counter-numbers {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+            font-size: 2.5rem;
+            font-weight: 900;
+            font-family: 'Courier New', monospace;
+        }
+
+        .counter-numbers div {
+            background: var(--dark-gray);
+            padding: 10px 15px;
+            border-radius: 8px;
+            min-width: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .counter-numbers {
+                font-size: 1.8rem;
+                gap: 5px;
+            }
+            
+            .counter-numbers div {
+                min-width: 40px;
+                padding: 8px 12px;
+            }
+        }
+
         /* Seção CTA Final */
         .final-cta {
             padding: 100px 0;
             text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .final-cta {
+                padding: 70px 0;
+            }
         }
 
         .cta-box {
@@ -494,6 +741,12 @@
             margin: 0 auto;
             position: relative;
             overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .cta-box {
+                padding: 30px 20px;
+            }
         }
 
         .cta-box:before {
@@ -514,26 +767,7 @@
             margin: 30px 0;
             font-weight: 700;
             display: inline-block;
-        }
-
-        /* Contador - Efeito de Escassez */
-        .counter {
-            background: var(--primary-color);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 30px auto;
-            max-width: 500px;
-            text-align: center;
-        }
-
-        .counter-numbers {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 15px 0;
-            font-size: 2.5rem;
-            font-weight: 900;
+            animation: pulse 2s infinite;
         }
 
         /* Footer */
@@ -543,11 +777,24 @@
             padding: 60px 0 20px;
         }
 
+        @media (max-width: 768px) {
+            .footer {
+                padding: 40px 0 20px;
+            }
+        }
+
         .footer-content {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 40px;
             margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
         }
 
         .footer-info h3 {
@@ -584,84 +831,20 @@
             text-align: center;
             color: rgba(255, 255, 255, 0.7);
         }
-
-        /* Responsividade */
-        @media (max-width: 992px) {
-            h1 { font-size: 2.8rem; }
-            h2 { font-size: 2.4rem; }
-            
-            .logic-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .section-padding {
-                padding: 60px 0;
-            }
-            
-            h1 { font-size: 2.4rem; }
-            h2 { font-size: 2rem; }
-            h3 { font-size: 1.6rem; }
-            
-            .header {
-                top: 40px;
-            }
-            
-            .hero {
-                padding: 150px 0 60px;
-            }
-            
-            .btn-large {
-                padding: 18px 30px;
-                font-size: 1.1rem;
-            }
-            
-            .cta-box {
-                padding: 30px;
-            }
-            
-            .rational-box {
-                padding: 30px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .alert-bar {
-                font-size: 0.9rem;
-                padding: 10px 0;
-            }
-            
-            .main-headline {
-                font-size: 2rem;
-            }
-            
-            .subheadline {
-                font-size: 1.2rem;
-            }
-            
-            .emotional-content p {
-                font-size: 1.1rem;
-            }
-            
-            .counter-numbers {
-                font-size: 1.8rem;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Faixa de Alerta URGENTE -->
+    <!-- Faixa de Alerta URGENTE - OTIMIZADA PARA MOBILE -->
     <div class="alert-bar">
         <i class="fas fa-exclamation-triangle"></i>
-        <strong>ATENÇÃO ADVOGADO:</strong> Assista ao vídeo abaixo antes de continuar! O futuro da sua carreira pode mudar em 15 minutos.
+        <span class="alert-text">
+            <strong>ATENÇÃO ADVOGADO:</strong> Assista ao vídeo abaixo antes de continuar! 
+            <span class="desktop-only">O futuro da sua carreira pode mudar em 15 minutos.</span>
+            <span class="mobile-only">Mude sua carreira em 15 minutos!</span>
+        </span>
     </div>
 
-    <!-- Header -->
+    <!-- Header - OTIMIZADO PARA MOBILE -->
     <header class="header">
         <div class="container">
             <nav class="navbar">
@@ -670,7 +853,7 @@
                     <span>ADVOCACIA 5.0</span>
                 </a>
                 <a href="https://go.hotmart.com/V103413532P" target="_blank" class="btn btn-primary">
-                    <i class="fas fa-gem"></i> QUERO COMPRAR AGORA
+                    <i class="fas fa-gem"></i> <span class="btn-text">COMPRAR AGORA</span>
                 </a>
             </nav>
         </div>
@@ -683,8 +866,10 @@
                 <!-- Headline e Subheadline -->
                 <div class="headline-container">
                     <h1 class="main-headline">
-                        Pare de Trocar <span class="text-accent">HORAS POR DINHEIRO</span><br>
-                        e Comece a <span class="text-accent">MULTIPLICAR</span> Seus Ganhos
+                        <span class="desktop-only">Pare de Trocar <span class="text-accent">HORAS POR DINHEIRO</span><br>
+                        e Comece a <span class="text-accent">MULTIPLICAR</span> Seus Ganhos</span>
+                        <span class="mobile-only">Pare de Trocar <span class="text-accent">HORAS POR DINHEIRO</span> 
+                        e <span class="text-accent">MULTIPLIQUE</span> Seus Ganhos</span>
                     </h1>
                     <p class="subheadline">
                         Descubra o método que já libertou mais de 347 advogados da rotina exaustiva de audiências 
@@ -715,10 +900,15 @@
                     <div class="emotional-content">
                         <h2>Imagine Acordar Amanhã Sabendo que...</h2>
                         <p>
-                            Seu escritório funciona mesmo quando você está dormindo.<br>
+                            <span class="desktop-only">Seu escritório funciona mesmo quando você está dormindo.<br>
                             Seus processos são resolvidos sem você precisar pisar em um fórum.<br>
                             Seu faturamento mensal é 3x maior trabalhando metade das horas.<br>
-                            Você finalmente tem tempo para viver a vida que sempre sonhou.
+                            Você finalmente tem tempo para viver a vida que sempre sonhou.</span>
+                            
+                            <span class="mobile-only">Seu escritório funciona enquanto você dorme.<br>
+                            Processos resolvidos sem pisar no fórum.<br>
+                            Faturamento 3x maior trabalhando menos.<br>
+                            Tempo para viver sua vida.</span>
                         </p>
                         <a href="https://go.hotmart.com/V103413532P" target="_blank" class="btn btn-primary btn-large">
                             <i class="fas fa-bolt"></i> SIM, EU QUERO ISSO PARA MIM!
@@ -788,11 +978,12 @@
                         </ul>
                     </div>
 
-                    <div style="text-align: center; margin-top: 40px;">
-                        <a href="https://tuliomattos.github.io/sistema_juridico/" target="_blank" class="btn btn-tertiary btn-large">
-                            <i class="fas fa-external-link-alt"></i> CONHEÇA O PROGRAMA DE CADASTRO GRATUITO
+                    <!-- Botão SUPER CHAMATIVO para Programa Gratuito -->
+                    <div class="program-button-container">
+                        <a href="https://tuliomattos.github.io/sistema_juridico/" target="_blank" class="program-button">
+                            <i class="fas fa-star"></i> CONHEÇA O PROGRAMA DE CADASTRO GRATUITO
                         </a>
-                        <p style="font-style: italic; margin-top: 15px;">
+                        <p style="font-style: italic; margin-top: 15px; color: var(--medium-gray);">
                             (Este programa é oferecido gratuitamente a todos os alunos do método)
                         </p>
                     </div>
@@ -833,11 +1024,11 @@
             <div class="counter">
                 <p>OFERTA ESPECIAL TERMINA EM:</p>
                 <div class="counter-numbers">
-                    <div>02</div>
+                    <div id="hours">02</div>
                     <div>:</div>
-                    <div>19</div>
+                    <div id="minutes">19</div>
                     <div>:</div>
-                    <div>47</div>
+                    <div id="seconds">47</div>
                 </div>
                 <p>Horas : Minutos : Segundos</p>
             </div>
@@ -894,24 +1085,82 @@
     </footer>
 
     <script>
+        // Detectar dispositivo e ajustar conteúdo
+        function detectDevice() {
+            const isMobile = window.innerWidth <= 768;
+            const desktopElements = document.querySelectorAll('.desktop-only');
+            const mobileElements = document.querySelectorAll('.mobile-only');
+            const btnText = document.querySelector('.btn-text');
+            
+            if (isMobile) {
+                desktopElements.forEach(el => el.style.display = 'none');
+                mobileElements.forEach(el => el.style.display = 'inline');
+                if (btnText) btnText.textContent = 'COMPRAR';
+            } else {
+                desktopElements.forEach(el => el.style.display = 'inline');
+                mobileElements.forEach(el => el.style.display = 'none');
+                if (btnText) btnText.textContent = 'COMPRAR AGORA';
+            }
+        }
+
+        // Ajustar altura do header baseado na alert bar
+        function adjustHeaderHeight() {
+            const alertBar = document.querySelector('.alert-bar');
+            const header = document.querySelector('.header');
+            const hero = document.querySelector('.hero');
+            
+            if (alertBar && header && hero) {
+                const alertHeight = alertBar.offsetHeight;
+                const headerHeight = header.offsetHeight;
+                
+                header.style.top = alertHeight + 'px';
+                hero.style.paddingTop = (alertHeight + headerHeight + 80) + 'px';
+            }
+        }
+
         // Controle do Vídeo
         const video = document.getElementById('mainVideo');
         const playButton = document.getElementById('playButton');
         
-        playButton.addEventListener('click', function() {
-            video.play();
-            playButton.style.display = 'none';
-        });
-        
-        video.addEventListener('play', function() {
-            playButton.style.display = 'none';
-        });
-        
-        video.addEventListener('pause', function() {
-            playButton.style.display = 'flex';
-        });
+        if (playButton && video) {
+            playButton.addEventListener('click', function() {
+                video.play();
+                playButton.style.display = 'none';
+            });
+            
+            video.addEventListener('play', function() {
+                playButton.style.display = 'none';
+            });
+            
+            video.addEventListener('pause', function() {
+                playButton.style.display = 'flex';
+            });
+            
+            // Detectar se o vídeo não existe
+            video.addEventListener('error', function() {
+                console.log('Vídeo não encontrado. Carregando placeholder...');
+                const placeholder = document.createElement('div');
+                placeholder.style.position = 'absolute';
+                placeholder.style.top = '0';
+                placeholder.style.left = '0';
+                placeholder.style.width = '100%';
+                placeholder.style.height = '100%';
+                placeholder.style.background = 'linear-gradient(135deg, var(--dark-gray), #000)';
+                placeholder.style.display = 'flex';
+                placeholder.style.alignItems = 'center';
+                placeholder.style.justifyContent = 'center';
+                placeholder.style.color = 'white';
+                placeholder.style.fontSize = '1.2rem';
+                placeholder.style.textAlign = 'center';
+                placeholder.style.padding = '20px';
+                placeholder.innerHTML = '<div><i class="fas fa-video" style="font-size: 3rem; margin-bottom: 20px;"></i><br>Vídeo de apresentação em breve<br><small>Carregue seu vídeo em: /videos/video-apresentacao.mp4</small></div>';
+                
+                document.querySelector('.video-placeholder').appendChild(placeholder);
+                playButton.style.display = 'none';
+            });
+        }
 
-        // Contador Regressivo
+        // Contador Regressivo Dinâmico
         function updateCounter() {
             const now = new Date();
             const endOfDay = new Date();
@@ -919,61 +1168,127 @@
             
             const diff = endOfDay - now;
             
+            if (diff <= 0) {
+                // Reset no próximo dia
+                endOfDay.setDate(endOfDay.getDate() + 1);
+                updateCounter();
+                return;
+            }
+            
             const hours = Math.floor(diff / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
             
-            document.querySelector('.counter-numbers').innerHTML = `
-                <div>${hours.toString().padStart(2, '0')}</div>
-                <div>:</div>
-                <div>${minutes.toString().padStart(2, '0')}</div>
-                <div>:</div>
-                <div>${seconds.toString().padStart(2, '0')}</div>
-            `;
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+            
+            if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+            if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+            if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+            
+            // Efeito de pulso nos últimos 10 minutos
+            if (hours === 0 && minutes < 10) {
+                document.querySelector('.counter').style.animation = 'pulse 1s infinite';
+                document.querySelector('.counter').style.borderColor = '#ff0000';
+            }
         }
-        
-        setInterval(updateCounter, 1000);
-        updateCounter();
 
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
+        // Smooth Scroll otimizado
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        const headerHeight = document.querySelector('.header').offsetHeight;
+                        const alertHeight = document.querySelector('.alert-bar').offsetHeight;
+                        const offset = headerHeight + alertHeight + 20;
+                        
+                        window.scrollTo({
+                            top: targetElement.offsetTop - offset,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Header scroll effect otimizado
+        function initHeaderEffect() {
+            const header = document.querySelector('.header');
+            let lastScroll = 0;
+            
+            window.addEventListener('scroll', function() {
+                const currentScroll = window.pageYOffset;
                 
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
+                if (currentScroll > 100) {
+                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
+                    
+                    // Esconder header no scroll down, mostrar no scroll up (mobile)
+                    if (window.innerWidth <= 768 && currentScroll > 200) {
+                        if (currentScroll > lastScroll) {
+                            header.style.transform = 'translateY(-100%)';
+                            header.style.transition = 'transform 0.3s ease';
+                        } else {
+                            header.style.transform = 'translateY(0)';
+                        }
+                        lastScroll = currentScroll;
+                    }
+                } else {
+                    header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                    header.style.transform = 'translateY(0)';
                 }
             });
-        });
+        }
 
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if(window.scrollY > 100) {
-                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        // Efeito de digitação na headline
+        function initHeadlineAnimation() {
+            const headline = document.querySelector('.main-headline');
+            if (headline) {
+                headline.style.opacity = '0';
+                headline.style.transform = 'translateY(20px)';
+                headline.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                
+                setTimeout(() => {
+                    headline.style.opacity = '1';
+                    headline.style.transform = 'translateY(0)';
+                }, 300);
             }
+        }
+
+        // Inicializar tudo quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            detectDevice();
+            adjustHeaderHeight();
+            initSmoothScroll();
+            initHeaderEffect();
+            initHeadlineAnimation();
+            
+            // Iniciar contador
+            setInterval(updateCounter, 1000);
+            updateCounter();
+            
+            // Verificar se o vídeo existe
+            setTimeout(() => {
+                if (video && video.readyState === 0) {
+                    video.dispatchEvent(new Event('error'));
+                }
+            }, 3000);
         });
 
-        // Efeito de digitação na headline (opcional)
-        document.addEventListener('DOMContentLoaded', function() {
-            // Adicionar classe de animação após carregamento
-            setTimeout(() => {
-                document.querySelector('.main-headline').style.opacity = '1';
-                document.querySelector('.main-headline').style.transform = 'translateY(0)';
-            }, 300);
-            
-            // Inicializar estilos
-            document.querySelector('.main-headline').style.opacity = '0';
-            document.querySelector('.main-headline').style.transform = 'translateY(20px)';
-            document.querySelector('.main-headline').style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        // Ajustar no resize da janela
+        window.addEventListener('resize', function() {
+            detectDevice();
+            adjustHeaderHeight();
+        });
+
+        // Ajustar após carregamento completo
+        window.addEventListener('load', function() {
+            setTimeout(adjustHeaderHeight, 100);
         });
     </script>
 </body>
