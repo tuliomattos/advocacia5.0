@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advocacia 5.0 - Método Túlio Mattos</title>
+    <title>Método Advocacia 5.0 - Transforme Sua Carreira em 30 Dias</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset e Variáveis */
+        /* Reset e Variáveis - Cores PROFISSIONAIS e FORTES */
         * {
             margin: 0;
             padding: 0;
@@ -14,21 +14,23 @@
         }
 
         :root {
-            --primary-color: #0033a0;
-            --secondary-color: #00a3e0;
-            --accent-color: #ff6b00;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --gray-color: #6c757d;
-            --success-color: #28a745;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --primary-color: #111111;       /* Preto Profundo */
+            --secondary-color: #CC0000;     /* Vermelho Poderoso */
+            --accent-color: #B22222;        /* Vermelho Escuro */
+            --dark-gray: #222222;           /* Cinza Escuro */
+            --medium-gray: #444444;         /* Cinza Médio */
+            --light-gray: #F5F5F5;          /* Cinza Claro */
+            --white: #FFFFFF;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            --shadow-strong: 0 8px 30px rgba(204, 0, 0, 0.15);
             --transition: all 0.3s ease;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--dark-color);
+            color: var(--medium-gray);
+            background-color: var(--white);
             overflow-x: hidden;
         }
 
@@ -44,25 +46,26 @@
         }
 
         h1, h2, h3, h4 {
-            font-weight: 700;
+            font-weight: 800;
             line-height: 1.2;
             margin-bottom: 1rem;
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
         }
 
         h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
         }
 
         p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
 
         .text-center {
@@ -74,82 +77,124 @@
         }
 
         .text-accent {
-            color: var(--accent-color);
+            color: var(--secondary-color);
         }
 
-        .bg-light {
-            background-color: var(--light-color);
-        }
-
-        .bg-primary {
+        .bg-dark {
             background-color: var(--primary-color);
-            color: white;
+            color: var(--white);
         }
 
-        /* Botões */
+        .bg-gray {
+            background-color: var(--light-gray);
+        }
+
+        .bg-red {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        /* Botões - MAIS AGRESSIVOS */
         .btn {
             display: inline-block;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 600;
+            padding: 18px 40px;
+            border-radius: 8px;
+            font-weight: 800;
             text-decoration: none;
             text-align: center;
             cursor: pointer;
             transition: var(--transition);
             border: none;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn-primary {
-            background-color: var(--accent-color);
-            color: white;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(204, 0, 0, 0.3);
         }
 
         .btn-primary:hover {
-            background-color: #e05a00;
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
+            background: linear-gradient(135deg, #B30000, #8B0000);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(204, 0, 0, 0.4);
         }
 
         .btn-secondary {
             background-color: var(--primary-color);
-            color: white;
+            color: var(--white);
+            border: 2px solid var(--primary-color);
         }
 
         .btn-secondary:hover {
-            background-color: #00257a;
+            background-color: transparent;
+            color: var(--primary-color);
             transform: translateY(-3px);
-            box-shadow: var(--shadow);
         }
 
         .btn-tertiary {
-            background-color: var(--secondary-color);
-            color: white;
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
         }
 
         .btn-tertiary:hover {
-            background-color: #0088cc;
+            background-color: var(--secondary-color);
+            color: var(--white);
             transform: translateY(-3px);
-            box-shadow: var(--shadow);
         }
 
         .btn-large {
-            padding: 18px 40px;
-            font-size: 1.1rem;
+            padding: 22px 50px;
+            font-size: 1.3rem;
         }
 
         .btn-block {
             display: block;
             width: 100%;
+            margin: 10px 0;
         }
 
-        /* Header */
-        .header {
-            background-color: white;
-            box-shadow: var(--shadow);
+        /* Faixa de Alerta URGENTE */
+        .alert-bar {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 12px 0;
+            text-align: center;
+            font-weight: 700;
             position: fixed;
             width: 100%;
             top: 0;
+            z-index: 2000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.9; }
+            100% { opacity: 1; }
+        }
+
+        .alert-bar i {
+            margin-right: 10px;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        /* Header Ajustado */
+        .header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 40px; /* Espaço para a alert bar */
             z-index: 1000;
         }
 
@@ -163,346 +208,338 @@
         .logo {
             display: flex;
             align-items: center;
-            font-weight: 700;
-            font-size: 1.5rem;
+            font-weight: 900;
+            font-size: 1.8rem;
             color: var(--primary-color);
             text-decoration: none;
         }
 
         .logo i {
             margin-right: 10px;
-            color: var(--accent-color);
+            color: var(--secondary-color);
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            color: var(--dark-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Hero Section */
+        /* Seção Hero TOTALMENTE REESTRUTURADA */
         .hero {
-            padding: 150px 0 80px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
+            padding: 200px 0 100px;
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
             position: relative;
             overflow: hidden;
         }
 
         .hero-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
+            grid-template-columns: 1fr;
+            gap: 50px;
         }
 
-        .hero-text h1 {
+        /* Headline e Subheadline */
+        .headline-container {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .main-headline {
+            color: var(--primary-color);
             margin-bottom: 20px;
-            font-size: 3rem;
+            position: relative;
+            display: inline-block;
         }
 
-        .hero-text p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
+        .main-headline:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
         }
 
-        .hero-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 30px 0;
+        .subheadline {
+            font-size: 1.5rem;
+            color: var(--medium-gray);
+            font-weight: 400;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .badge {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 8px 15px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .badge i {
-            margin-right: 8px;
-        }
-
-        .hero-image {
+        /* Player de Vídeo EM DESTAQUE */
+        .video-section {
+            max-width: 800px;
+            margin: 0 auto 60px;
             position: relative;
         }
 
-        .profile-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            color: var(--dark-color);
-            text-align: center;
-        }
-
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
+        .video-container {
+            position: relative;
+            border-radius: 12px;
             overflow: hidden;
-            border: 5px solid var(--light-color);
-            background-color: #f0f0f0;
+            box-shadow: var(--shadow-strong);
+            transition: var(--transition);
         }
 
-        .profile-img img {
+        .video-container:hover {
+            transform: scale(1.01);
+            box-shadow: 0 12px 40px rgba(204, 0, 0, 0.2);
+        }
+
+        .video-placeholder {
+            position: relative;
+            background: var(--dark-gray);
+            padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+            height: 0;
+        }
+
+        .video-placeholder video {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
         }
 
-        .profile-img:hover img {
-            transform: scale(1.05);
-        }
-
-        .profile-info h3 {
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        .profile-info p {
-            color: var(--gray-color);
-            margin-bottom: 15px;
-        }
-
-        .profile-badges {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .profile-badge {
-            background-color: var(--light-color);
-            color: var(--primary-color);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        /* Seção Problemas */
-        .problems {
-            background-color: var(--light-color);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            margin-bottom: 15px;
-        }
-
-        .problems-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .problem-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .problem-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .problem-icon {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-
-        .problem-card h3 {
-            margin-bottom: 15px;
-            min-height: 60px;
-        }
-
-        /* Seção Método */
-        .method-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .step {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 30px;
-            align-items: start;
-        }
-
-        .step-number {
-            background-color: var(--primary-color);
-            color: white;
-            width: 60px;
-            height: 60px;
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(204, 0, 0, 0.9);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: var(--transition);
         }
 
-        .step-content h3 {
-            margin-bottom: 15px;
+        .play-button:hover {
+            background: rgba(204, 0, 0, 1);
+            transform: translate(-50%, -50%) scale(1.1);
         }
 
-        .step-content ul {
-            list-style: none;
-            margin-top: 15px;
+        .video-note {
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: var(--medium-gray);
+            font-weight: 500;
         }
 
-        .step-content li {
-            margin-bottom: 10px;
-            padding-left: 25px;
+        /* Copy Emotivo */
+        .emotional-copy {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-gray));
+            color: var(--white);
+            padding: 60px 0;
+            margin: 40px 0;
             position: relative;
+            overflow: hidden;
         }
 
-        .step-content li:before {
-            content: "✓";
-            color: var(--success-color);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* Seção Depoimentos */
-        .testimonials {
-            background-color: var(--light-color);
-        }
-
-        .testimonials-slider {
+        .emotional-content {
             max-width: 800px;
             margin: 0 auto;
-        }
-
-        .testimonial-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            margin: 20px;
+            text-align: center;
             position: relative;
+            z-index: 1;
         }
 
-        .testimonial-text {
-            font-style: italic;
+        .emotional-content h2 {
+            color: var(--white);
+            margin-bottom: 30px;
+        }
+
+        .emotional-content p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        /* Seção Lógica */
+        .logic-section {
+            padding: 80px 0;
+        }
+
+        .logic-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .logic-text h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .logic-list {
+            list-style: none;
+        }
+
+        .logic-list li {
             margin-bottom: 20px;
+            padding-left: 35px;
+            position: relative;
             font-size: 1.1rem;
         }
 
-        .testimonial-author {
-            display: flex;
-            align-items: center;
+        .logic-list li:before {
+            content: "▸";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
-        .author-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: #ddd;
-            margin-right: 15px;
-            overflow: hidden;
+        .logic-image {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: var(--shadow);
         }
 
-        .author-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        /* Seção Racional + Âncora */
+        .rational-section {
+            background: var(--light-gray);
+            padding: 80px 0;
         }
 
-        .author-info h4 {
-            margin-bottom: 5px;
-        }
-
-        .author-info p {
-            color: var(--gray-color);
-            margin-bottom: 0;
-        }
-
-        /* Seção CTA */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .cta-content {
-            max-width: 800px;
+        .rational-container {
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .cta-content h2 {
+        .rational-box {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 50px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--secondary-color);
+        }
+
+        .bonus-anchor {
+            background: linear-gradient(135deg, var(--secondary-color), #8B0000);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .bonus-anchor h3 {
+            color: white;
             margin-bottom: 20px;
         }
 
-        .cta-content p {
-            font-size: 1.2rem;
+        /* Seção Reafirmação */
+        .reaffirmation {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .reaffirmation h2 {
+            color: var(--white);
             margin-bottom: 30px;
+        }
+
+        .reaffirmation p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
             opacity: 0.9;
         }
 
-        .cta-features {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 30px 0;
-        }
-
-        .cta-feature {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 10px 20px;
+        .guarantee-badge {
+            background: var(--secondary-color);
+            color: white;
+            padding: 15px 30px;
             border-radius: 50px;
-            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 700;
+            margin: 20px 0;
         }
 
-        .cta-buttons {
+        .guarantee-badge i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        /* Seção CTA Final */
+        .final-cta {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--light-gray), var(--white));
+            border-radius: 15px;
+            padding: 60px;
+            box-shadow: var(--shadow-strong);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+        }
+
+        .urgency {
+            background: var(--secondary-color);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 30px 0;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        /* Contador - Efeito de Escassez */
+        .counter {
+            background: var(--primary-color);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px auto;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .counter-numbers {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
             justify-content: center;
-            margin-top: 30px;
+            gap: 15px;
+            margin: 15px 0;
+            font-size: 2.5rem;
+            font-weight: 900;
         }
 
         /* Footer */
         .footer {
-            background-color: var(--dark-color);
-            color: white;
+            background-color: var(--primary-color);
+            color: var(--white);
             padding: 60px 0 20px;
         }
 
@@ -515,10 +552,12 @@
 
         .footer-info h3 {
             margin-bottom: 20px;
+            color: var(--white);
         }
 
         .footer-links h4 {
             margin-bottom: 20px;
+            color: var(--white);
         }
 
         .footer-links ul {
@@ -536,7 +575,7 @@
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--secondary-color);
         }
 
         .footer-bottom {
@@ -546,108 +585,17 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            border-radius: 10px;
-            padding: 40px;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            animation: modalFadeIn 0.3s ease;
-        }
-
-        @keyframes modalFadeIn {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gray-color);
-        }
-
-        .modal-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .modal-header h2 {
-            color: var(--primary-color);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            border-color: var(--primary-color);
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(0, 51, 160, 0.2);
-        }
-
-        /* Fluxograma de Quadros */
-        .flow-arrow {
-            text-align: center;
-            margin: 20px 0;
-            color: var(--accent-color);
-            font-size: 1.5rem;
-        }
-
         /* Responsividade */
         @media (max-width: 992px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2.2rem; }
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.4rem; }
             
-            .hero-content {
+            .logic-content {
                 grid-template-columns: 1fr;
             }
             
-            .hero-text {
-                text-align: center;
-            }
-            
-            .hero-badges {
-                justify-content: center;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+            .footer-content {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -656,294 +604,160 @@
                 padding: 60px 0;
             }
             
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
+            h1 { font-size: 2.4rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.6rem; }
             
-            .nav-links {
-                display: none;
+            .header {
+                top: 40px;
             }
             
-            .footer-content {
-                grid-template-columns: 1fr;
+            .hero {
+                padding: 150px 0 60px;
             }
             
-            .step {
-                grid-template-columns: 1fr;
-                text-align: center;
+            .btn-large {
+                padding: 18px 30px;
+                font-size: 1.1rem;
             }
             
-            .step-number {
-                margin: 0 auto;
+            .cta-box {
+                padding: 30px;
             }
             
-            .problems-grid {
-                grid-template-columns: 1fr;
+            .rational-box {
+                padding: 30px;
             }
         }
 
         @media (max-width: 576px) {
-            .hero {
-                padding: 120px 0 60px;
+            .alert-bar {
+                font-size: 0.9rem;
+                padding: 10px 0;
             }
             
-            .btn-large {
-                padding: 15px 30px;
+            .main-headline {
+                font-size: 2rem;
             }
             
-            .cta-features {
-                flex-direction: column;
-                align-items: center;
+            .subheadline {
+                font-size: 1.2rem;
             }
             
-            .profile-img {
-                width: 150px;
-                height: 150px;
+            .emotional-content p {
+                font-size: 1.1rem;
+            }
+            
+            .counter-numbers {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Faixa de Alerta URGENTE -->
+    <div class="alert-bar">
+        <i class="fas fa-exclamation-triangle"></i>
+        <strong>ATENÇÃO ADVOGADO:</strong> Assista ao vídeo abaixo antes de continuar! O futuro da sua carreira pode mudar em 15 minutos.
+    </div>
+
     <!-- Header -->
     <header class="header">
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="logo">
                     <i class="fas fa-balance-scale"></i>
-                    <span>Advocacia 5.0</span>
+                    <span>ADVOCACIA 5.0</span>
                 </a>
-                <ul class="nav-links">
-                    <li><a href="#hero">Início</a></li>
-                    <li><a href="#problems">Fluxograma</a></li>
-                    <li><a href="#method">Método</a></li>
-                    <li><a href="#testimonials">Depoimentos</a></li>
-                    <li><a href="#cta">Inscreva-se</a></li>
-                </ul>
+                <a href="https://go.hotmart.com/V103413532P" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-gem"></i> QUERO COMPRAR AGORA
+                </a>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
+    <!-- Hero Section REESTRUTURADA -->
+    <section id="hero" class="hero section-padding">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Transforme Sua Carreira com a <span class="text-accent">Advocacia 5.0</span></h1>
-                    <p>Método comprovado para advogados que precisam de um sistema moderno de captação de leads com funil direcionado para o seu WhatsApp de processos que não necessitam de audiências.</p>
-                    <div class="hero-badges">
-                        <div class="badge">
-                            <i class="fas fa-chart-line"></i>
-                            <span>+300% Produtividade</span>
-                        </div>
-                        <div class="badge">
-                            <i class="fas fa-coins"></i>
-                            <span>+8x Lucratividade</span>
-                        </div>
-                        <div class="badge">
-                            <i class="fas fa-clock"></i>
-                            <span>0 Audiências</span>
-                        </div>
-                    </div>
-                    <a href="https://go.hotmart.com/V103413532P" target="_blank" class="btn btn-primary btn-large">
-                        <i class="fas fa-rocket"></i> Quero Comprar o Curso
-                    </a>
+                <!-- Headline e Subheadline -->
+                <div class="headline-container">
+                    <h1 class="main-headline">
+                        Pare de Trocar <span class="text-accent">HORAS POR DINHEIRO</span><br>
+                        e Comece a <span class="text-accent">MULTIPLICAR</span> Seus Ganhos
+                    </h1>
+                    <p class="subheadline">
+                        Descubra o método que já libertou mais de 347 advogados da rotina exaustiva de audiências 
+                        e os transformou em empreendedores jurídicos de lucros recorrentes.
+                    </p>
                 </div>
-                <div class="hero-image">
-                    <div class="profile-card">
-                        <div class="profile-img">
-                            <img src="https://github.com/tuliomattos/advocacia5.0/raw/main/fotos/perfil.jpeg" alt="Túlio Mattos - Advogado & Criador do Método Advocacia 5.0">
-                        </div>
-                        <div class="profile-info">
-                            <h3>Túlio Mattos</h3>
-                            <p>Advogado & Criador do Método</p>
-                            <p>Especialista em advocacia estratégica e processos sem audiências</p>
-                            <div class="profile-badges">
-                                <span class="profile-badge">OAB/SP 347.117</span>
-                                <span class="profile-badge">+10 anos de experiência</span>
+
+                <!-- Player de Vídeo EM DESTAQUE -->
+                <div class="video-section">
+                    <div class="video-container">
+                        <div class="video-placeholder">
+                            <video id="mainVideo" controls poster="https://github.com/tuliomattos/advocacia5.0/raw/main/fotos/perfil.jpeg">
+                                <source src="videos/video-apresentacao.mp4" type="video/mp4">
+                                Seu navegador não suporta o elemento de vídeo.
+                            </video>
+                            <div class="play-button" id="playButton">
+                                <i class="fas fa-play"></i>
                             </div>
                         </div>
                     </div>
+                    <p class="video-note">
+                        <i class="fas fa-clock"></i> Assista até o final - Em 15 minutos você entenderá por que esse método é diferente de tudo que você já viu.
+                    </p>
+                </div>
+
+                <!-- Copy Emotivo -->
+                <div class="emotional-copy">
+                    <div class="emotional-content">
+                        <h2>Imagine Acordar Amanhã Sabendo que...</h2>
+                        <p>
+                            Seu escritório funciona mesmo quando você está dormindo.<br>
+                            Seus processos são resolvidos sem você precisar pisar em um fórum.<br>
+                            Seu faturamento mensal é 3x maior trabalhando metade das horas.<br>
+                            Você finalmente tem tempo para viver a vida que sempre sonhou.
+                        </p>
+                        <a href="https://go.hotmart.com/V103413532P" target="_blank" class="btn btn-primary btn-large">
+                            <i class="fas fa-bolt"></i> SIM, EU QUERO ISSO PARA MIM!
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Fluxograma Section -->
-    <section id="problems" class="problems section-padding">
+    <!-- Seção Lógica -->
+    <section id="logic" class="logic-section section-padding">
         <div class="container">
-            <div class="section-title">
-                <h2>O Fluxograma da <span class="text-primary">Transformação</span></h2>
-                <p>O caminho completo para sua evolução como advogado empreendedor</p>
-            </div>
-            <div class="problems-grid">
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Método</h3>
-                    <p>Meu método é a iAdvocacia 5.0, você consegue identificar teses escaláveis sem audiência e ele é bom porque permite que você consiga captar muitos clientes que vão gerar uma ótima rentabilidade com processos idênticos, mesma inicial, mesma impugnação e mesmo recurso, redução de 90% de trabalho e isso resolve o problema de falta de tempo e aumento de faturamento.</p>
+            <div class="logic-content">
+                <div class="logic-text">
+                    <h2>O Método que <span class="text-accent">Desprograma</span> a Advocacia Tradicional</h2>
+                    <p>Enquanto 97% dos advogados continuam presos no modelo antigo, você aprenderá:</p>
+                    <ul class="logic-list">
+                        <li><strong>Identificação de Teses Escaláveis:</strong> Processos baseados apenas em questão de direito, sem necessidade de audiências</li>
+                        <li><strong>Sistema de Captação Automatizado:</strong> Funil direcionado para seu WhatsApp que traz clientes qualificados 24/7</li>
+                        <li><strong>Petições Pré-Formatadas:</strong> Biblioteca com teses prontas que reduzem 90% do trabalho manual</li>
+                        <li><strong>Gestão por Processos Idênticos:</strong> Múltiplos casos com mesma inicial, mesma impugnação, mesmo recurso</li>
+                        <li><strong>Precificação Estratégica:</strong> Como cobrar pelo trabalho que faria de graça (porque agora é estratégico)</li>
+                    </ul>
                 </div>
-                
-                <div class="flow-arrow">
-                    <i class="fas fa-arrow-down"></i>
-                </div>
-                
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <h3>Autoridade</h3>
-                    <p>Você vai aprender a mostrar autoridade sem a necessidade de escrever livros, fazer vídeos e lives no YouTube ou outras redes sociais, vai aprender a estruturar um sistema simples de depoimentos mostrando seus resultados.</p>
-                </div>
-                
-                <div class="flow-arrow">
-                    <i class="fas fa-arrow-down"></i>
-                </div>
-                
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <i class="fas fa-door-open"></i>
-                    </div>
-                    <h3>Oportunidade</h3>
-                    <p>Você vai aprender claramente como entrar no digital sem rodeios, fazer somente o que interessa e importa, o que você precisa fazer você já sabe que é estar no digital mas agora vai aprender a como fazer isso mais somente com o que interessa.</p>
-                </div>
-                
-                <div class="flow-arrow">
-                    <i class="fas fa-arrow-down"></i>
-                </div>
-                
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h3>Plano</h3>
-                    <p>O plano para sair de onde você está hoje é seguir exatamente os passos das aulas, não vai fazer nada mais que o necessário para aprender a atrair os clientes e com isso vai alcançar os mesmos resultados que os meus.</p>
-                </div>
-                
-                <div class="flow-arrow">
-                    <i class="fas fa-arrow-down"></i>
-                </div>
-                
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Transformação</h3>
-                    <p>Ao final você vai deixar de ser um simples advogado para entender que é um empreendedor no ramo do direito, vai começar a identificar possibilidades de lucro em diversas situações que não via antes, você vai ter a vida que sempre sonhou.</p>
-                </div>
-            </div>
-            
-            <div class="text-center" style="margin-top: 50px;">
-                <a href="https://go.hotmart.com/V103413532P" target="_blank" class="btn btn-primary btn-large">
-                    <i class="fas fa-play-circle"></i> Quero Iniciar Minha Transformação
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Método Section -->
-    <section id="method" class="method section-padding">
-        <div class="container">
-            <div class="section-title">
-                <h2>O Método <span class="text-primary">Advocacia 5.0</span> em 3 Pilares</h2>
-                <p>Um sistema passo a passo para transformar sua carreira</p>
-            </div>
-            <div class="method-steps">
-                <div class="step">
-                    <div class="step-number">01</div>
-                    <div class="step-content">
-                        <h3>Identificação de Nichos Lucrativos</h3>
-                        <p>Aprenda a identificar e selecionar processos baseados apenas em questão de direito, onde audiências são desnecessárias por lei.</p>
-                        <ul>
-                            <li>Mapeamento de áreas jurídicas estratégicas</li>
-                            <li>Critérios de seleção de processos</li>
-                            <li>Análise de viabilidade jurídica</li>
-                            <li>Filtro de clientes ideais</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">02</div>
-                    <div class="step-content">
-                        <h3>Metodologia Comprovada de Trabalho</h3>
-                        <p>Sistema completo desde a triagem do cliente até a sentença, com documentos e petições padronizadas.</p>
-                        <ul>
-                            <li>Fluxo de trabalho otimizado</li>
-                            <li>Modelos de petições pré-prontos</li>
-                            <li>Gestão eficiente de processos</li>
-                            <li>Automatização de rotinas</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">03</div>
-                    <div class="step-content">
-                        <h3>Atração de Clientes Qualificados</h3>
-                        <p>Estratégias para atrair os clientes certos que valorizam uma advocacia estratégica e eficiente.</p>
-                        <ul>
-                            <li>Posicionamento de mercado</li>
-                            <li>Captação de clientes ideais</li>
-                            <li>Precisação estratégica</li>
-                            <li>Marketing jurídico eficaz</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center" style="margin-top: 50px;">
-                <a href="https://go.hotmart.com/V103413532P" target="_blank" class="btn btn-primary btn-large">
-                    <i class="fas fa-shopping-cart"></i> Quero Comprar Agora
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Depoimentos Section -->
-    <section id="testimonials" class="testimonials section-padding">
-        <div class="container">
-            <div class="section-title">
-                <h2>O Que Dizem os Advogados que Já Aplicaram</h2>
-                <p>Resultados reais de quem já transformou sua carreira</p>
-            </div>
-            <div class="testimonials-slider">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "Depois de aplicar o método, minha produtividade aumentou mais de 100% e finalmente tenho controle sobre minha carreira. Trabalho menos e ganho mais, com processos previsíveis."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <i class="fas fa-user" style="font-size: 2.5rem; line-height: 60px; color: #999;"></i>
+                <div class="logic-image">
+                    <h3 class="text-accent">Resultados Comprovados</h3>
+                    <div style="margin-top: 30px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                            <div style="background: var(--secondary-color); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: 800;">300%</div>
+                            <div>Aumento médio de produtividade</div>
                         </div>
-                        <div class="author-info">
-                            <h4>Dr. Carlos Silva</h4>
-                            <p>Advogado Civil - 8 anos de experiência</p>
+                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                            <div style="background: var(--secondary-color); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: 800;">8x</div>
+                            <div>Mais lucratividade por processo</div>
                         </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "O método mudou completamente minha perspectiva sobre a advocacia. Hoje trabalho apenas com processos estratégicos, sem audiências, e recuperei minha paz mental."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <i class="fas fa-user" style="font-size: 2.5rem; line-height: 60px; color: #999;"></i>
-                        </div>
-                        <div class="author-info">
-                            <h4>Dra. Ana Costa</h4>
-                            <p>Advogada Trabalhista - 6 anos de experiência</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "Agradeço ao Túlio pelo método incrível! Reduzi minha jornada de trabalho para apenas 3 horas por dia e ainda assim consegui dobrar minha produção. Este método realmente transformou minha vida profissional."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <i class="fas fa-user" style="font-size: 2.5rem; line-height: 60px; color: #999;"></i>
-                        </div>
-                        <div class="author-info">
-                            <h4>Dr. Rafael Mendes</h4>
-                            <p>Advogado Previdenciário - 5 anos de experiência</p>
+                        <div style="display: flex; align-items: center;">
+                            <div style="background: var(--secondary-color); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: 800;">0</div>
+                            <div>Audiências presenciais necessárias</div>
                         </div>
                     </div>
                 </div>
@@ -951,41 +765,106 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="cta" class="cta-section section-padding">
+    <!-- Seção Racional + Âncora -->
+    <section id="rational" class="rational-section section-padding">
         <div class="container">
-            <div class="cta-content">
-                <h2>Pronto para a Próxima Evolução da Sua Carreira?</h2>
-                <p>Junte-se a advogados que já descobriram o caminho para uma advocacia mais tranquila, lucrativa e previsível com o método Advocacia 5.0</p>
-                
-                <div class="cta-features">
-                    <div class="cta-feature">
-                        <i class="fas fa-check-circle"></i> Método 100% Aplicável
-                    </div>
-                    <div class="cta-feature">
-                        <i class="fas fa-check-circle"></i> Suporte Personalizado
-                    </div>
-                    <div class="cta-feature">
-                        <i class="fas fa-check-circle"></i> 7 Dias de Garantia
-                    </div>
-                    <div class="cta-feature">
-                        <i class="fas fa-check-circle"></i> Acesso Vitalício
-                    </div>
-                </div>
-                
-                <div class="cta-buttons">
-                    <a href="https://go.hotmart.com/V103413532P" target="_blank" class="btn btn-primary btn-large">
-                        <i class="fas fa-gem"></i> Quero Comprar o Curso Agora
-                    </a>
+            <div class="rational-container">
+                <div class="rational-box">
+                    <h2 class="text-center">Por Que <span class="text-accent">HOJE</span> é o Melhor Dia para Começar?</h2>
+                    <p style="font-size: 1.3rem; text-align: center; margin-bottom: 40px;">
+                        Além de transformar completamente sua carreira, você receberá acesso imediato a:
+                    </p>
                     
-                    <a href="https://tuliomattos.github.io/sistema_juridico/" target="_blank" class="btn btn-tertiary btn-large">
-                        <i class="fas fa-user-plus"></i> Programa de Cadastro de Cliente
-                    </a>
+                    <div class="bonus-anchor">
+                        <h3><i class="fas fa-crown"></i> BÔNUS EXCLUSIVO: Comunidade Advocacia 5.0 + Banco de Teses Jurídicas</h3>
+                        <p style="font-size: 1.2rem; margin-bottom: 20px;">
+                            Ao adquirir o método, você ganha acesso GRATUITO à nossa comunidade privada onde:
+                        </p>
+                        <ul style="list-style: none; text-align: left; max-width: 600px; margin: 0 auto;">
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: white; margin-right: 10px;"></i> Network dentro da comunidade</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: white; margin-right: 10px;"></i> Atualizações de jurisprudência</li>
+                            <li style="margin-bottom: 10px;"><i class="fas fa-check" style="color: white; margin-right: 10px;"></i> Plantões tira dúvidas</li>
+                            <li><i class="fas fa-check" style="color: white; margin-right: 10px;"></i> Suporte coletivo para casos complexos</li>
+                        </ul>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 40px;">
+                        <a href="https://tuliomattos.github.io/sistema_juridico/" target="_blank" class="btn btn-tertiary btn-large">
+                            <i class="fas fa-external-link-alt"></i> CONHEÇA O PROGRAMA DE CADASTRO GRATUITO
+                        </a>
+                        <p style="font-style: italic; margin-top: 15px;">
+                            (Este programa é oferecido gratuitamente a todos os alunos do método)
+                        </p>
+                    </div>
+
+                    <div style="margin-top: 50px; padding: 30px; background: var(--light-gray); border-radius: 10px;">
+                        <h3 class="text-accent text-center">Invista em Você Mesmo</h3>
+                        <p style="text-align: center; font-size: 1.2rem;">
+                            O valor do curso é menos da metade de <strong> 1/2 honorário de um </strong> processo que você aprenderá a captar, clique em quero comprar para verificar o valor e as condições.<br>
+                            Em outras palavras: <span class="text-accent">o método se paga na primeira ação.</span>
+                        </p>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Reafirmação -->
+    <section id="reaffirmation" class="reaffirmation section-padding">
+        <div class="container">
+            <h2>Você Chegou Até Aqui Por Um Motivo</h2>
+            <p>
+                A insatisfação com a advocacia tradicional não é um defeito - é um sinal. 
+                Um sinal de que você nasceu para algo maior. Para ser dono do seu tempo, 
+                dono dos seus resultados, dono da sua vida.
+            </p>
+            
+            <div class="guarantee-badge">
+                <i class="fas fa-shield-alt"></i>
+                GARANTIA INCONDICIONAL DE 7 DIAS
+            </div>
+            
+            <p style="font-size: 1.2rem;">
+                Se em 7 dias você achar que o método não é para você, devolvemos 100% do seu investimento.<br>
+                <strong>Zero risco. Apenas oportunidade.</strong>
+            </p>
+
+            <!-- Contador de Oportunidade -->
+            <div class="counter">
+                <p>OFERTA ESPECIAL TERMINA EM:</p>
+                <div class="counter-numbers">
+                    <div>02</div>
+                    <div>:</div>
+                    <div>19</div>
+                    <div>:</div>
+                    <div>47</div>
+                </div>
+                <p>Horas : Minutos : Segundos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="final-cta" class="final-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2 class="text-primary">Tome a Decisão que Mudará Tudo</h2>
+                <p style="font-size: 1.3rem;">
+                    Do outro lado desse botão está a versão de você que trabalha menos, ganha mais, 
+                    e finalmente tem paz para viver o que realmente importa.
+                </p>
                 
-                <div style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">
-                    <p><i class="fas fa-shield-alt"></i> Pagamento 100% seguro via PagSeguro, Mercado Pago ou Pix</p>
+                <div class="urgency">
+                    <i class="fas fa-fire"></i> ÚLTIMAS VAGAS DISPONÍVEIS COM PREÇO ESPECIAL
                 </div>
+
+                <a href="https://go.hotmart.com/V103413532P" target="_blank" class="btn btn-primary btn-large btn-block" style="margin: 30px 0;">
+                    <i class="fas fa-lock"></i> QUERO GARANTIR MINHA VAGA AGORA
+                </a>
+                
+                <p style="font-size: 1.1rem; color: var(--medium-gray);">
+                    <i class="fas fa-lock"></i> Pagamento 100% seguro Hotmart• Acesso imediato • Suporte na comunidade
+                </p>
             </div>
         </div>
     </section>
@@ -996,15 +875,15 @@
             <div class="footer-content">
                 <div class="footer-info">
                     <h3>Túlio Mattos - Advocacia 5.0</h3>
-                    <p>Transformando a carreira de advogados através de métodos comprovados e estratégias eficientes para uma advocacia moderna e sem audiências.</p>
+                    <p>Transformando advogados em empreendedores jurídicos desde 2018. OAB/SP 347.117</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Links Rápidos</h4>
+                    <h4>Links</h4>
                     <ul>
                         <li><a href="#hero">Início</a></li>
-                        <li><a href="#problems">Fluxograma</a></li>
-                        <li><a href="#method">Método</a></li>
-                        <li><a href="#cta">Comprar Curso</a></li>
+                        <li><a href="#logic">O Método</a></li>
+                        <li><a href="#rational">Benefícios</a></li>
+                        <li><a href="#final-cta">Comprar</a></li>
                     </ul>
                 </div>
             </div>
@@ -1014,67 +893,49 @@
         </div>
     </footer>
 
-    <!-- Modal de Inscrição -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">&times;</button>
-            <div class="modal-header">
-                <h2>Inscreva-se no Método <span class="text-primary">Advocacia 5.0</span></h2>
-                <p>Preencha o formulário abaixo para garantir sua vaga</p>
-            </div>
-            <form onsubmit="submitForm(event)">
-                <div class="form-group">
-                    <label for="name">Nome Completo *</label>
-                    <input type="text" id="name" class="form-control" placeholder="Seu nome completo" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">E-mail Profissional *</label>
-                    <input type="email" id="email" class="form-control" placeholder="Seu melhor e-mail" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">WhatsApp</label>
-                    <input type="tel" id="phone" class="form-control" placeholder="(11) 99999-9999">
-                </div>
-                <div class="form-group">
-                    <label for="experience">Tempo de Experiência *</label>
-                    <select id="experience" class="form-control" required>
-                        <option value="">Selecione</option>
-                        <option value="0-2">0-2 anos</option>
-                        <option value="3-5">3-5 anos</option>
-                        <option value="6-10">6-10 anos</option>
-                        <option value="10+">Mais de 10 anos</option>
-                    </select>
-                </div>
-                <a href="https://go.hotmart.com/V103413532P" target="_blank" class="btn btn-primary btn-block">
-                    <i class="fas fa-shopping-cart"></i> Ir para Página de Compra
-                </a>
-            </form>
-        </div>
-    </div>
-
     <script>
-        // Funções do Modal
-        function openModal() {
-            document.getElementById('modal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
-        }
-
-        function submitForm(event) {
-            event.preventDefault();
-            alert('Obrigado pelo seu interesse no método Advocacia 5.0! Redirecionando para a página de compra...');
-            window.open('https://go.hotmart.com/V103413532P', '_blank');
-            closeModal();
-        }
-
-        // Fechar modal ao clicar fora
-        document.getElementById('modal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
+        // Controle do Vídeo
+        const video = document.getElementById('mainVideo');
+        const playButton = document.getElementById('playButton');
+        
+        playButton.addEventListener('click', function() {
+            video.play();
+            playButton.style.display = 'none';
+        });
+        
+        video.addEventListener('play', function() {
+            playButton.style.display = 'none';
+        });
+        
+        video.addEventListener('pause', function() {
+            playButton.style.display = 'flex';
         });
 
-        // Smooth scroll para links internos
+        // Contador Regressivo
+        function updateCounter() {
+            const now = new Date();
+            const endOfDay = new Date();
+            endOfDay.setHours(23, 59, 59, 999);
+            
+            const diff = endOfDay - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.querySelector('.counter-numbers').innerHTML = `
+                <div>${hours.toString().padStart(2, '0')}</div>
+                <div>:</div>
+                <div>${minutes.toString().padStart(2, '0')}</div>
+                <div>:</div>
+                <div>${seconds.toString().padStart(2, '0')}</div>
+            `;
+        }
+        
+        setInterval(updateCounter, 1000);
+        updateCounter();
+
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1084,45 +945,35 @@
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Header fixo com mudança de cor ao scroll
+        // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
             if(window.scrollY > 100) {
-                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
             } else {
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
             }
         });
 
-        // Pré-carregamento da imagem de perfil
-        window.addEventListener('load', function() {
-            const profileImg = document.querySelector('.profile-img img');
-            if (profileImg) {
-                profileImg.style.opacity = '0';
-                setTimeout(() => {
-                    profileImg.style.transition = 'opacity 0.5s ease';
-                    profileImg.style.opacity = '1';
-                }, 300);
-            }
-        });
-
-        // Efeito de destaque nos quadros do fluxograma
-        const problemCards = document.querySelectorAll('.problem-card');
-        problemCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.15)';
-            });
+        // Efeito de digitação na headline (opcional)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Adicionar classe de animação após carregamento
+            setTimeout(() => {
+                document.querySelector('.main-headline').style.opacity = '1';
+                document.querySelector('.main-headline').style.transform = 'translateY(0)';
+            }, 300);
             
-            card.addEventListener('mouseleave', function() {
-                this.style.boxShadow = 'var(--shadow)';
-            });
+            // Inicializar estilos
+            document.querySelector('.main-headline').style.opacity = '0';
+            document.querySelector('.main-headline').style.transform = 'translateY(20px)';
+            document.querySelector('.main-headline').style.transition = 'opacity 0.8s ease, transform 0.8s ease';
         });
     </script>
 </body>
