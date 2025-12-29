@@ -831,6 +831,26 @@
             text-align: center;
             color: rgba(255, 255, 255, 0.7);
         }
+
+        /* Contador de Pessoas - Estilo discreto */
+        .people-counter {
+            font-size: 0.8rem;
+            margin-top: 10px;
+            opacity: 0.7;
+            color: var(--white);
+            text-align: center;
+            padding: 5px 0;
+        }
+
+        .people-counter i {
+            margin-right: 5px;
+            color: var(--secondary-color);
+        }
+
+        .people-counter .number {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
     </style>
 </head>
 <body>
@@ -873,7 +893,7 @@
                     </h1>
                     <p class="subheadline">
                         Descubra o método que já libertou mais de 347 advogados da rotina exaustiva de audiências 
-                        e os transformou em empreendedores jurídicos de lucros recorrentes.
+                        e os transformou em empreendedores jurídicos sem a necessidade ter seguidores.
                     </p>
                 </div>
 
@@ -881,8 +901,9 @@
                 <div class="video-section">
                     <div class="video-container">
                         <div class="video-placeholder">
-                            <video id="mainVideo" controls poster="https://github.com/tuliomattos/advocacia5.0/raw/main/fotos/perfil.jpeg">
-                                <source src="videos/video-apresentacao.mp4" type="video/mp4">
+                            <!-- VÍDEO ATUALIZADO PARA CARREGAR DO GITHUB -->
+                            <video id="mainVideo" controls>
+                                <source src="https://raw.githubusercontent.com/tuliomattos/advocacia5.0/main/videos/apresentacao.mp4" type="video/mp4">
                                 Seu navegador não suporta o elemento de vídeo.
                             </video>
                             <div class="play-button" id="playButton">
@@ -891,7 +912,7 @@
                         </div>
                     </div>
                     <p class="video-note">
-                        <i class="fas fa-clock"></i> Assista até o final - Em 15 minutos você entenderá por que esse método é diferente de tudo que você já viu.
+                        <i class="fas fa-clock"></i> Assista até o final - Em menos de 15 minutos você entenderá por que esse método é diferente de tudo que você já viu.
                     </p>
                 </div>
 
@@ -1080,6 +1101,12 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 Túlio Mattos - Advocacia 5.0. Todos os direitos reservados.</p>
+                
+                <!-- CONTADOR DE PESSOAS DISCRETO -->
+                <div class="people-counter" id="peopleCounter">
+                    <i class="fas fa-user-friends"></i> 
+                    <span class="number" id="counterNumber">347</span> advogados já transformaram suas carreiras com este método
+                </div>
             </div>
         </div>
     </footer>
@@ -1138,26 +1165,86 @@
             
             // Detectar se o vídeo não existe
             video.addEventListener('error', function() {
-                console.log('Vídeo não encontrado. Carregando placeholder...');
-                const placeholder = document.createElement('div');
-                placeholder.style.position = 'absolute';
-                placeholder.style.top = '0';
-                placeholder.style.left = '0';
-                placeholder.style.width = '100%';
-                placeholder.style.height = '100%';
-                placeholder.style.background = 'linear-gradient(135deg, var(--dark-gray), #000)';
-                placeholder.style.display = 'flex';
-                placeholder.style.alignItems = 'center';
-                placeholder.style.justifyContent = 'center';
-                placeholder.style.color = 'white';
-                placeholder.style.fontSize = '1.2rem';
-                placeholder.style.textAlign = 'center';
-                placeholder.style.padding = '20px';
-                placeholder.innerHTML = '<div><i class="fas fa-video" style="font-size: 3rem; margin-bottom: 20px;"></i><br>Vídeo de apresentação em breve<br><small>Carregue seu vídeo em: /videos/video-apresentacao.mp4</small></div>';
+                console.log('Vídeo não encontrado no GitHub. Tentando caminho alternativo...');
                 
-                document.querySelector('.video-placeholder').appendChild(placeholder);
-                playButton.style.display = 'none';
+                // Tentar caminho alternativo
+                video.src = "https://github.com/tuliomattos/advocacia5.0/raw/main/videos/apresentacao.mp4";
+                video.load();
+                
+                // Se ainda der erro, mostrar placeholder
+                video.addEventListener('error', function() {
+                    console.log('Vídeo não encontrado em nenhum caminho.');
+                    const placeholder = document.createElement('div');
+                    placeholder.style.position = 'absolute';
+                    placeholder.style.top = '0';
+                    placeholder.style.left = '0';
+                    placeholder.style.width = '100%';
+                    placeholder.style.height = '100%';
+                    placeholder.style.background = 'linear-gradient(135deg, var(--dark-gray), #000)';
+                    placeholder.style.display = 'flex';
+                    placeholder.style.alignItems = 'center';
+                    placeholder.style.justifyContent = 'center';
+                    placeholder.style.color = 'white';
+                    placeholder.style.fontSize = '1.2rem';
+                    placeholder.style.textAlign = 'center';
+                    placeholder.style.padding = '20px';
+                    placeholder.innerHTML = '<div><i class="fas fa-video" style="font-size: 3rem; margin-bottom: 20px;"></i><br>Vídeo de apresentação em breve<br><small>Carregue seu vídeo em: /videos/apresentacao.mp4 no GitHub</small></div>';
+                    
+                    document.querySelector('.video-placeholder').appendChild(placeholder);
+                    playButton.style.display = 'none';
+                });
             });
+        }
+
+        // CONTADOR DE PESSOAS DINÂMICO
+        function updatePeopleCounter() {
+            const counterElement = document.getElementById('counterNumber');
+            if (!counterElement) return;
+            
+            // Base inicial
+            let baseNumber = 347;
+            
+            // Verificar se há um número salvo no localStorage
+            const savedCount = localStorage.getItem('peopleCounterBase');
+            if (savedCount) {
+                baseNumber = parseInt(savedCount);
+            }
+            
+            // Calcular número atual baseado no tempo desde a última visita
+            const now = new Date();
+            const startDate = new Date('2024-01-01');
+            const daysSinceStart = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+            
+            // Incremento baseado nos dias (aproximadamente 2-5 por dia)
+            const dailyIncrement = 2 + (daysSinceStart % 4); // Varia entre 2-5
+            const totalIncrement = Math.floor(daysSinceStart * dailyIncrement / 30);
+            
+            const currentNumber = baseNumber + totalIncrement;
+            
+            // Atualizar o elemento com animação
+            counterElement.textContent = currentNumber.toLocaleString('pt-BR');
+            
+            // Salvar no localStorage para consistência
+            localStorage.setItem('peopleCounterBase', baseNumber.toString());
+            
+            // Efeito de contagem se for a primeira visita do usuário
+            if (!sessionStorage.getItem('hasSeenCounter')) {
+                animateCounter(counterElement, baseNumber, currentNumber);
+                sessionStorage.setItem('hasSeenCounter', 'true');
+            }
+        }
+        
+        function animateCounter(element, start, end) {
+            let current = start;
+            const increment = (end - start) / 50; // 50 passos
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= end) {
+                    current = end;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString('pt-BR');
+            }, 30);
         }
 
         // Contador Regressivo Dinâmico
@@ -1268,8 +1355,9 @@
             initHeaderEffect();
             initHeadlineAnimation();
             
-            // Iniciar contador
-            setInterval(updateCounter, 1000);
+            // Iniciar contadores
+            updatePeopleCounter(); // Contador de pessoas
+            setInterval(updateCounter, 1000); // Contador regressivo
             updateCounter();
             
             // Verificar se o vídeo existe
