@@ -22,6 +22,7 @@
             --light-gray: #F5F5F5;          /* Cinza Claro */
             --white: #FFFFFF;
             --gold: #FFD700;                /* Dourado para botão especial */
+            --whatsapp-green: #25D366;      /* Verde do WhatsApp */
             --shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             --shadow-strong: 0 8px 30px rgba(204, 0, 0, 0.15);
             --transition: all 0.3s ease;
@@ -144,6 +145,19 @@
             display: block;
             width: 100%;
             margin: 10px 0;
+        }
+
+        /* Botão WhatsApp */
+        .btn-whatsapp {
+            background: linear-gradient(135deg, var(--whatsapp-green), #1DA851);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background: linear-gradient(135deg, #1DA851, #128C7E);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
         }
 
         /* Faixa de Alerta URGENTE - CORRIGIDA PARA MOBILE */
@@ -360,6 +374,75 @@
             font-style: italic;
             color: var(--medium-gray);
             font-weight: 500;
+        }
+
+        /* Seção QR Code - NOVA SEÇÃO */
+        .qrcode-section {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .qrcode-container {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            max-width: 500px;
+            margin: 0 auto;
+            border: 3px solid var(--whatsapp-green);
+        }
+
+        .qrcode-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .qrcode-title i {
+            color: var(--whatsapp-green);
+            margin-right: 10px;
+        }
+
+        .qrcode-image {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            border: 2px solid var(--whatsapp-green);
+            border-radius: 10px;
+            padding: 10px;
+            background: var(--white);
+            display: block;
+        }
+
+        .qrcode-message {
+            font-size: 1.2rem;
+            color: var(--medium-gray);
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        .qrcode-message strong {
+            color: var(--whatsapp-green);
+        }
+
+        @media (max-width: 768px) {
+            .qrcode-container {
+                padding: 20px;
+                max-width: 90%;
+            }
+            
+            .qrcode-image {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .qrcode-title {
+                font-size: 1.5rem;
+            }
+            
+            .qrcode-message {
+                font-size: 1.1rem;
+            }
         }
 
         /* Copy Emotivo */
@@ -802,24 +885,21 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
-        /* Contador de Pessoas - Estilo discreto */
-        .people-counter {
-            font-size: 0.8rem;
-            margin-top: 10px;
-            opacity: 0.7;
+        /* Contador de Acessos - ESTILO NOVO */
+        .access-counter {
+            font-size: 1rem;
+            margin-top: 15px;
+            opacity: 0.8;
             color: var(--white);
             text-align: center;
             padding: 5px 0;
         }
 
-        .people-counter i {
+        .access-counter .number {
+            font-weight: 900;
+            font-size: 1.3rem;
+            color: var(--secondary-color);
             margin-right: 5px;
-            color: var(--secondary-color);
-        }
-
-        .people-counter .number {
-            font-weight: bold;
-            color: var(--secondary-color);
         }
     </style>
 </head>
@@ -829,8 +909,8 @@
         <i class="fas fa-exclamation-triangle"></i>
         <span class="alert-text">
             <strong>ATENÇÃO ADVOGADO:</strong> Assista ao vídeo abaixo antes de continuar! 
-            <span class="desktop-only">O futuro da sua carreira pode mudar em 15 minutos.</span>
-            <span class="mobile-only">Mude sua carreira em 15 minutos!</span>
+            <span class="desktop-only">O futuro da sua carreira pode mudar em menos de 10 minutos.</span>
+            <span class="mobile-only">Mude sua carreira em menos de 10 minutos!</span>
         </span>
     </div>
 
@@ -880,8 +960,37 @@
                         </div>
                     </div>
                     <p class="video-note">
-                        <i class="fas fa-clock"></i> Assista até o final - Em menos de 15 minutos você entenderá por que esse método é diferente de tudo que você já viu.
+                        <i class="fas fa-clock"></i> Assista até o final - Em menos de 10 minutos você entenderá por que esse método é diferente de tudo que você já viu.
                     </p>
+
+                    <!-- NOVA SEÇÃO: QR CODE PARA WHATSAPP -->
+                    <div class="qrcode-section">
+                        <div class="qrcode-container">
+                            <h3 class="qrcode-title">
+                                <i class="fab fa-whatsapp"></i> Entre no Grupo do WhatsApp
+                            </h3>
+                            <p class="qrcode-message">
+                                <strong>Assista a uma aula gratuita exclusiva</strong> no nosso grupo privado!<br>
+                                Escaneie o QR Code abaixo para entrar:
+                            </p>
+                            
+                            <!-- QR Code do GitHub -->
+                            <img src="https://raw.githubusercontent.com/tuliomattos/advocacia5.0/main/fotos/qrcode.png" 
+                                 alt="QR Code para entrar no grupo do WhatsApp"
+                                 class="qrcode-image"
+                                 onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://chat.whatsapp.com/DGv5JGM9mxi7guamcOiMP3';">
+                            
+                            
+                            </p>
+                            
+                            <a href="https://chat.whatsapp.com/DGv5JGM9mxi7guamcOiMP3" 
+                               target="_blank" 
+                               class="btn btn-whatsapp"
+                               style="margin-top: 20px;">
+                                <i class="fab fa-whatsapp"></i> ENTRAR AGORA NO GRUPO
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Copy Emotivo -->
@@ -1070,10 +1179,9 @@
             <div class="footer-bottom">
                 <p>&copy; 2024 Túlio Mattos - Advocacia 5.0. Todos os direitos reservados.</p>
                 
-                <!-- CONTADOR DE PESSOAS DISCRETO -->
-                <div class="people-counter" id="peopleCounter">
-                    <i class="fas fa-user-friends"></i> 
-                    <span class="number" id="counterNumber">347</span> advogados já transformaram suas carreiras com este método
+                <!-- CONTADOR DE ACESSOS ATUALIZADO -->
+                <div class="access-counter" id="accessCounter">
+                    <span class="number" id="accessNumber">350</span> Acessos
                 </div>
             </div>
         </div>
@@ -1113,55 +1221,38 @@
             }
         }
 
-        // CONTADOR DE PESSOAS DINÂMICO
-        function updatePeopleCounter() {
-            const counterElement = document.getElementById('counterNumber');
+        // CONTADOR DE ACESSOS DINÂMICO
+        function updateAccessCounter() {
+            const counterElement = document.getElementById('accessNumber');
             if (!counterElement) return;
             
-            // Base inicial
-            let baseNumber = 347;
+            // Valor inicial
+            let baseNumber = 350;
             
             // Verificar se há um número salvo no localStorage
-            const savedCount = localStorage.getItem('peopleCounterBase');
+            const savedCount = localStorage.getItem('accessCounterBase');
             if (savedCount) {
                 baseNumber = parseInt(savedCount);
             }
             
-            // Calcular número atual baseado no tempo desde a última visita
-            const now = new Date();
-            const startDate = new Date('2024-01-01');
-            const daysSinceStart = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+            // Aumentar o contador a cada visita (simulação de mais acessos)
+            baseNumber += Math.floor(Math.random() * 3) + 1; // +1 a +3 acessos
             
-            // Incremento baseado nos dias (aproximadamente 2-5 por dia)
-            const dailyIncrement = 2 + (daysSinceStart % 4); // Varia entre 2-5
-            const totalIncrement = Math.floor(daysSinceStart * dailyIncrement / 30);
+            // Atualizar o elemento
+            counterElement.textContent = baseNumber.toLocaleString('pt-BR');
             
-            const currentNumber = baseNumber + totalIncrement;
+            // Salvar no localStorage
+            localStorage.setItem('accessCounterBase', baseNumber.toString());
             
-            // Atualizar o elemento com animação
-            counterElement.textContent = currentNumber.toLocaleString('pt-BR');
-            
-            // Salvar no localStorage para consistência
-            localStorage.setItem('peopleCounterBase', baseNumber.toString());
-            
-            // Efeito de contagem se for a primeira visita do usuário
-            if (!sessionStorage.getItem('hasSeenCounter')) {
-                animateCounter(counterElement, baseNumber, currentNumber);
-                sessionStorage.setItem('hasSeenCounter', 'true');
+            // Efeito de animação no número
+            if (!sessionStorage.getItem('hasSeenAccessCounter')) {
+                counterElement.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    counterElement.style.transition = 'transform 0.5s ease';
+                    counterElement.style.transform = 'scale(1)';
+                }, 300);
+                sessionStorage.setItem('hasSeenAccessCounter', 'true');
             }
-        }
-        
-        function animateCounter(element, start, end) {
-            let current = start;
-            const increment = (end - start) / 50; // 50 passos
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= end) {
-                    current = end;
-                    clearInterval(timer);
-                }
-                element.textContent = Math.floor(current).toLocaleString('pt-BR');
-            }, 30);
         }
 
         // Contador Regressivo Dinâmico
@@ -1273,7 +1364,7 @@
             initHeadlineAnimation();
             
             // Iniciar contadores
-            updatePeopleCounter(); // Contador de pessoas
+            updateAccessCounter(); // Contador de acessos
             setInterval(updateCounter, 1000); // Contador regressivo
             updateCounter();
         });
