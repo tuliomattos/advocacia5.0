@@ -317,7 +317,7 @@
             }
         }
 
-        /* Player de Vídeo EM DESTAQUE */
+        /* Player de Vídeo EM DESTAQUE - AGORA COM YOUTUBE */
         .video-section {
             max-width: 800px;
             margin: 0 auto 60px;
@@ -337,51 +337,21 @@
             box-shadow: 0 12px 40px rgba(204, 0, 0, 0.2);
         }
 
-        .video-placeholder {
+        /* Estilo para embed do YouTube */
+        .video-embed {
             position: relative;
-            background: var(--dark-gray);
             padding-bottom: 56.25%; /* Aspect ratio 16:9 */
             height: 0;
+            overflow: hidden;
         }
 
-        .video-placeholder video {
+        .video-embed iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-        }
-
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            background: rgba(204, 0, 0, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        @media (max-width: 768px) {
-            .play-button {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-        }
-
-        .play-button:hover {
-            background: rgba(204, 0, 0, 1);
-            transform: translate(-50%, -50%) scale(1.1);
+            border: none;
         }
 
         .video-note {
@@ -897,18 +867,16 @@
                     </p>
                 </div>
 
-                <!-- Player de Vídeo EM DESTAQUE -->
+                <!-- Player de Vídeo EM DESTAQUE - AGORA COM YOUTUBE -->
                 <div class="video-section">
                     <div class="video-container">
-                        <div class="video-placeholder">
-                            <!-- VÍDEO ATUALIZADO PARA CARREGAR DO GITHUB -->
-                            <video id="mainVideo" controls>
-                                <source src="https://raw.githubusercontent.com/tuliomattos/advocacia5.0/main/videos/apresentacao.mp4" type="video/mp4">
-                                Seu navegador não suporta o elemento de vídeo.
-                            </video>
-                            <div class="play-button" id="playButton">
-                                <i class="fas fa-play"></i>
-                            </div>
+                        <div class="video-embed">
+                            <!-- VÍDEO DO YOUTUBE -->
+                            <iframe src="https://www.youtube.com/embed/6LRcvLZ5AR8?rel=0&amp;showinfo=0&amp;controls=1&amp;autoplay=0" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen>
+                            </iframe>
                         </div>
                     </div>
                     <p class="video-note">
@@ -987,7 +955,7 @@
                     </p>
                     
                     <div class="bonus-anchor">
-                        <h3><i class="fas fa-crown"></i> BÔNUS EXCLUSIVO: Comunidade Advocacia 5.0 + Banco de Teses Jurídicas</h3>
+                        <h3><i class="fas fa-crown"></i> BÔNUS EXCLUSIVO: Aplicativo de cadastro + Comunidade Advocacia 5.0 + Banco de Teses Jurídicas</h3>
                         <p style="font-size: 1.2rem; margin-bottom: 20px;">
                             Ao adquirir o método, você ganha acesso GRATUITO à nossa comunidade privada onde:
                         </p>
@@ -1143,57 +1111,6 @@
                 header.style.top = alertHeight + 'px';
                 hero.style.paddingTop = (alertHeight + headerHeight + 80) + 'px';
             }
-        }
-
-        // Controle do Vídeo
-        const video = document.getElementById('mainVideo');
-        const playButton = document.getElementById('playButton');
-        
-        if (playButton && video) {
-            playButton.addEventListener('click', function() {
-                video.play();
-                playButton.style.display = 'none';
-            });
-            
-            video.addEventListener('play', function() {
-                playButton.style.display = 'none';
-            });
-            
-            video.addEventListener('pause', function() {
-                playButton.style.display = 'flex';
-            });
-            
-            // Detectar se o vídeo não existe
-            video.addEventListener('error', function() {
-                console.log('Vídeo não encontrado no GitHub. Tentando caminho alternativo...');
-                
-                // Tentar caminho alternativo
-                video.src = "https://github.com/tuliomattos/advocacia5.0/raw/main/videos/apresentacao.mp4";
-                video.load();
-                
-                // Se ainda der erro, mostrar placeholder
-                video.addEventListener('error', function() {
-                    console.log('Vídeo não encontrado em nenhum caminho.');
-                    const placeholder = document.createElement('div');
-                    placeholder.style.position = 'absolute';
-                    placeholder.style.top = '0';
-                    placeholder.style.left = '0';
-                    placeholder.style.width = '100%';
-                    placeholder.style.height = '100%';
-                    placeholder.style.background = 'linear-gradient(135deg, var(--dark-gray), #000)';
-                    placeholder.style.display = 'flex';
-                    placeholder.style.alignItems = 'center';
-                    placeholder.style.justifyContent = 'center';
-                    placeholder.style.color = 'white';
-                    placeholder.style.fontSize = '1.2rem';
-                    placeholder.style.textAlign = 'center';
-                    placeholder.style.padding = '20px';
-                    placeholder.innerHTML = '<div><i class="fas fa-video" style="font-size: 3rem; margin-bottom: 20px;"></i><br>Vídeo de apresentação em breve<br><small>Carregue seu vídeo em: /videos/apresentacao.mp4 no GitHub</small></div>';
-                    
-                    document.querySelector('.video-placeholder').appendChild(placeholder);
-                    playButton.style.display = 'none';
-                });
-            });
         }
 
         // CONTADOR DE PESSOAS DINÂMICO
@@ -1359,13 +1276,6 @@
             updatePeopleCounter(); // Contador de pessoas
             setInterval(updateCounter, 1000); // Contador regressivo
             updateCounter();
-            
-            // Verificar se o vídeo existe
-            setTimeout(() => {
-                if (video && video.readyState === 0) {
-                    video.dispatchEvent(new Event('error'));
-                }
-            }, 3000);
         });
 
         // Ajustar no resize da janela
