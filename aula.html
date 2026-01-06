@@ -22,394 +22,6 @@
             --light-gray: #F5F5F5;
             --white: #FFFFFF;
             --whatsapp-green: #25D366;
-            --shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            --shadow-strong: 0 8px 30px rgba(204, 0, 0, 0.15);
-            --transition: all 0.3s ease;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--medium-gray);
-            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        h1, h2, h3 {
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .text-accent {
-            color: var(--secondary-color);
-        }
-
-        /* Header simplificado */
-        .header {
-            background-color: var(--white);
-            box-shadow: var(--shadow);
-            padding: 20px 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .logo i {
-            margin-right: 10px;
-            color: var(--secondary-color);
-        }
-
-        /* Conteúdo principal */
-        .main-content {
-            flex: 1;
-            padding: 60px 0;
-            display: flex;
-            align-items: center;
-        }
-
-        /* Container do vídeo */
-        .video-container-wrapper {
-            background: var(--white);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: var(--shadow-strong);
-            margin-bottom: 40px;
-            border: 3px solid var(--secondary-color);
-            position: relative;
-        }
-
-        .video-container-wrapper:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
-            border-radius: 15px 15px 0 0;
-        }
-
-        .video-title {
-            text-align: center;
-            margin-bottom: 25px;
-            color: var(--primary-color);
-        }
-
-        .video-title i {
-            color: var(--secondary-color);
-            margin-right: 10px;
-        }
-
-        /* Player de vídeo */
-        .video-container {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .video-embed {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-        }
-
-        .video-embed iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .video-note {
-            text-align: center;
-            margin-top: 20px;
-            font-style: italic;
-            color: var(--medium-gray);
-            padding: 15px;
-            background: rgba(204, 0, 0, 0.05);
-            border-radius: 8px;
-            font-weight: 500;
-        }
-
-        /* Seção WhatsApp */
-        .whatsapp-section {
-            background: var(--white);
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: var(--shadow-strong);
-            border: 3px solid var(--whatsapp-green);
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .whatsapp-title {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        .whatsapp-title i {
-            color: var(--whatsapp-green);
-            margin-right: 10px;
-        }
-
-        .whatsapp-message {
-            font-size: 1.2rem;
-            color: var(--medium-gray);
-            margin: 20px 0;
-            line-height: 1.6;
-        }
-
-        .whatsapp-message strong {
-            color: var(--whatsapp-green);
-        }
-
-        /* Botão WhatsApp */
-        .btn-whatsapp {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--whatsapp-green), #1DA851);
-            color: var(--white);
-            padding: 18px 40px;
-            border-radius: 8px;
-            font-weight: 800;
-            text-decoration: none;
-            text-align: center;
-            font-size: 1.2rem;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            margin-top: 20px;
-        }
-
-        .btn-whatsapp:hover {
-            background: linear-gradient(135deg, #1DA851, #128C7E);
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-        }
-
-        .btn-whatsapp i {
-            margin-right: 10px;
-            font-size: 1.3rem;
-        }
-
-        /* QR Code */
-        .qrcode-container {
-            background: var(--white);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 30px auto;
-            max-width: 300px;
-            border: 2px solid var(--whatsapp-green);
-        }
-
-        .qrcode-image {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        .qrcode-note {
-            font-size: 0.9rem;
-            color: var(--medium-gray);
-            margin-top: 10px;
-            font-style: italic;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 40px 0 20px;
-            text-align: center;
-            margin-top: auto;
-        }
-
-        .footer p {
-            margin-bottom: 10px;
-            opacity: 0.8;
-        }
-
-        .footer a {
-            color: var(--secondary-color);
-            text-decoration: none;
-        }
-
-        /* Responsivo */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 10px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.6rem;
-            }
-            
-            .video-container-wrapper,
-            .whatsapp-section {
-                padding: 20px;
-            }
-            
-            .btn-whatsapp {
-                padding: 15px 30px;
-                font-size: 1.1rem;
-            }
-            
-            .whatsapp-message {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header simplificado -->
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-balance-scale"></i>
-                <span>ADVOCACIA 5.0</span>
-            </div>
-        </div>
-    </header>
-
-    <!-- Conteúdo principal -->
-    <main class="main-content">
-        <div class="container">
-            <div class="video-container-wrapper">
-                <h1 class="video-title text-center">
-                    <i class="fas fa-play-circle"></i> ASSISTA A ESTE VÍDEO ANTES DE CONTINUAR
-                </h1>
-                
-                <div class="video-container">
-                    <div class="video-embed">
-                        <!-- VÍDEO DO YOUTUBE -->
-                        <iframe src="https://www.youtube.com/embed/6LRcvLZ5AR8?rel=0&amp;showinfo=0&amp;controls=1&amp;autoplay=0" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                
-                <p class="video-note text-center">
-                    <i class="fas fa-exclamation-circle"></i> 
-                    Este vídeo mostrará como a Advocacia 5.0 pode transformar sua carreira jurídica em menos de 10 minutos.
-                </p>
-            </div>
-
-            <!-- Seção WhatsApp -->
-            <div class="whatsapp-section">
-                <h2 class="whatsapp-title">
-                    <i class="fab fa-whatsapp"></i> QUER APRENDER UMA AÇÃO QUE NÃO ENVOLVA INSTRUÇÃO?
-                </h2>
-                
-                <p class="whatsapp-message">
-                    <strong>Assista a uma aula gratuita exclusiva</strong> no nosso grupo do WhatsApp!<br>
-                    Aprenda uma ação prática que você pode aplicar imediatamente, sem necessidade de audiências ou instrução presencial.
-                </p>
-                
-                <!-- QR Code -->
-                <div class="qrcode-container">
-                    <img src="https://raw.githubusercontent.com/tuliomattos/advocacia5.0/main/fotos/qrcode.png" 
-                         alt="QR Code para entrar no grupo do WhatsApp"
-                         class="qrcode-image"
-                         onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://chat.whatsapp.com/FeknLjI5tAjKTyiZ6hKdTd';">
-                    <p class="qrcode-note text-center">Escaneie com seu celular</p>
-                </div>
-                
-                <a href="https://chat.whatsapp.com/FeknLjI5tAjKTyiZ6hKdTd" 
-                   target="_blank" 
-                   class="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> ENTRAR NO GRUPO AGORA
-                </a>
-                
-                <p style="margin-top: 25px; font-size: 1rem; color: var(--medium-gray);">
-                    <i class="fas fa-info-circle"></i> 
-                    No grupo você terá acesso à aula gratuita + material exclusivo + networking com outros advogados
-                </p>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>© 2024 Túlio Mattos - Advocacia 5.0. Todos os direitos reservados.</p>
-            <p>OAB/SP 347.117</p>
-            <p><a href="https://tuliomattos.github.io/advocacia5.0/" target="_blank">Acessar site completo</a></p>
-        </div>
-    </footer>
-
-    <script>
-        // Efeito de entrada no vídeo
-        document.addEventListener('DOMContentLoaded', function() {
-            const videoWrapper = document.querySelector('.video-container-wrapper');
-            cons<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assista ao Vídeo | Método Advocacia 5.0</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Reset e Variáveis - Mesmo padrão do site principal */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #111111;
-            --secondary-color: #CC0000;
-            --accent-color: #B22222;
-            --dark-gray: #222222;
-            --medium-gray: #444444;
-            --light-gray: #F5F5F5;
-            --white: #FFFFFF;
-            --whatsapp-green: #25D366;
             --facebook-blue: #1877F2;
             --instagram-pink: #E4405F;
             --shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
@@ -883,11 +495,11 @@
                     <img src="https://raw.githubusercontent.com/tuliomattos/advocacia5.0/main/fotos/qrcode.png" 
                          alt="QR Code para entrar no grupo do WhatsApp"
                          class="qrcode-image"
-                         onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://chat.whatsapp.com/FeknLjI5tAjKTyiZ6hKdTd';">
+                         onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://chat.whatsapp.com/DGv5JGM9mxi7guamcOiMP3';">
                     <p class="qrcode-note text-center">Escaneie com seu celular</p>
                 </div>
                 
-                <a href="https://chat.whatsapp.com/FeknLjI5tAjKTyiZ6hKdTd" 
+                <a href="https://chat.whatsapp.com/DGv5JGM9mxi7guamcOiMP3" 
                    target="_blank" 
                    class="btn-whatsapp">
                     <i class="fab fa-whatsapp"></i> ENTRAR NO GRUPO AGORA
@@ -908,7 +520,7 @@
                         <div class="social-card facebook">
                             <i class="fab fa-facebook social-icon"></i>
                             <h3>Facebook Pessoal</h3>
-                            <p>Acompanhe meu perfil pessoal para insights, dicas e atualizações do dia a dia da advocacia moderna.</p>
+                            <p>Acompanhe meu perfil pessoal.</p>
                             <a href="https://www.facebook.com/tulio.mattos.104" target="_blank" class="social-link">
                                 <i class="fab fa-facebook-f"></i> SEGUIR NO FACEBOOK
                             </a>
@@ -918,7 +530,7 @@
                         <div class="social-card instagram">
                             <i class="fab fa-instagram social-icon"></i>
                             <h3>Instagram Pessoal</h3>
-                            <p>Conteúdo exclusivo sobre minha rotina, cases de sucesso e bastidores da advocacia empreendedora.</p>
+                            <p>Acompanhae meu Instagram pessoal onde demonstro as publicações para os clientes do meu método.</p>
                             <a href="https://www.instagram.com/tuliomattosadv/" target="_blank" class="social-link">
                                 <i class="fab fa-instagram"></i> SEGUIR NO INSTAGRAM
                             </a>
@@ -927,10 +539,10 @@
                         <!-- Instagram do Curso -->
                         <div class="social-card curso">
                             <i class="fas fa-graduation-cap social-icon"></i>
-                            <h3>Instagram do Curso</h3>
-                            <p>Fique por dentro das novidades do Método Advocacia 5.0, depoimentos de alunos e conteúdos educativos.</p>
-                            <a href="https://www.instagram.com/advocacia_mattos/" target="_blank" class="social-link">
-                                <i class="fab fa-instagram"></i> SEGUIR O CURSO
+                            <h3>Instagram do Método</h3>
+                            <p>Fique por dentro das novidades do Método Advocacia 5.0.</p>
+                            <a href="https://www.instagram.com/advocacia_5.0/" target="_blank" class="social-link">
+                                <i class="fab fa-instagram"></i> SEGUIR O MÉTODO
                             </a>
                         </div>
                     </div>
@@ -946,7 +558,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>© 2024 Túlio Mattos - Advocacia 5.0. Todos os direitos reservados.</p>
+            <p>© 2026 Túlio Mattos - Advocacia 5.0. Todos os direitos reservados.</p>
             <p>OAB/SP 347.117</p>
             <p><a href="https://tuliomattos.github.io/advocacia5.0/" target="_blank">Acessar site completo do Método</a></p>
         </div>
@@ -998,17 +610,20 @@
             localStorage.setItem('videoViewCount', parseInt(viewCount) + 1);
             
             // Acompanhamento de cliques nos links sociais
-            const socialLinks = document.querySelectorAll('.social-link');
+            const socialLinks = document.querySelectorAll('.social-link, .btn-whatsapp');
             socialLinks.forEach(link => {
                 link.addEventListener('click', function() {
-                    const platform = this.closest('.social-card').classList[1];
+                    let platform = 'whatsapp';
+                    if (this.classList.contains('social-link')) {
+                        platform = this.closest('.social-card').classList[1];
+                    }
                     const clickCount = localStorage.getItem(`socialClick_${platform}`) || 0;
                     localStorage.setItem(`socialClick_${platform}`, parseInt(clickCount) + 1);
                 });
             });
         });
         
-        // Scroll suave
+        // Scroll suave para links internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1024,33 +639,14 @@
                 }
             });
         });
-    </script>
-</body>
-</html>t whatsappSection = document.querySelector('.whatsapp-section');
-            
-            // Animação de entrada
-            setTimeout(() => {
-                videoWrapper.style.opacity = '1';
-                videoWrapper.style.transform = 'translateY(0)';
-            }, 300);
-            
-            setTimeout(() => {
-                whatsappSection.style.opacity = '1';
-                whatsappSection.style.transform = 'translateY(0)';
-            }, 600);
-            
-            // Estilos iniciais para animação
-            videoWrapper.style.opacity = '0';
-            videoWrapper.style.transform = 'translateY(20px)';
-            videoWrapper.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            
-            whatsappSection.style.opacity = '0';
-            whatsappSection.style.transform = 'translateY(20px)';
-            whatsappSection.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            
-            // Contador simples de visualizações
-            const viewCount = localStorage.getItem('videoViewCount') || 0;
-            localStorage.setItem('videoViewCount', parseInt(viewCount) + 1);
+        
+        // Verificar se o QR Code falhou ao carregar
+        window.addEventListener('load', function() {
+            const qrImage = document.querySelector('.qrcode-image');
+            if (qrImage.naturalHeight === 0) {
+                // QR Code falhou ao carregar, usar URL alternativa
+                qrImage.src = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://chat.whatsapp.com/DGv5JGM9mxi7guamcOiMP3';
+            }
         });
     </script>
 </body>
