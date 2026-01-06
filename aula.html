@@ -24,6 +24,7 @@
             --whatsapp-green: #25D366;
             --facebook-blue: #1877F2;
             --instagram-pink: #E4405F;
+            --gold-yellow: #FFD700;
             --shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             --shadow-strong: 0 8px 30px rgba(204, 0, 0, 0.15);
             --transition: all 0.3s ease;
@@ -220,7 +221,9 @@
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
             margin-top: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 500px;
         }
 
         .btn-whatsapp:hover {
@@ -232,6 +235,75 @@
         .btn-whatsapp i {
             margin-right: 10px;
             font-size: 1.3rem;
+        }
+
+        /* Botão Aplicativo de Cadastro - EM AMARELO */
+        .btn-app {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--gold-yellow), #FFC400, var(--gold-yellow));
+            background-size: 200% 200%;
+            color: #000 !important;
+            font-weight: 900;
+            padding: 20px 45px;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            border: 3px solid var(--gold-yellow);
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            margin-top: 15px;
+            margin-bottom: 40px;
+            width: 100%;
+            max-width: 500px;
+            animation: gradientShift 3s infinite, pulse-gold 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulse-gold {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .btn-app:hover {
+            animation: none;
+            transform: scale(1.05) rotate(-1deg);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .btn-app i {
+            margin-right: 10px;
+            animation: spin-fast 1s linear infinite;
+        }
+
+        @keyframes spin-fast {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .btn-app:after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+
+        .btn-app:hover:after {
+            left: 100%;
         }
 
         /* QR Code */
@@ -375,6 +447,15 @@
             margin-right: 8px;
         }
 
+        /* Container de botões */
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
         /* Footer */
         .footer {
             background-color: var(--primary-color);
@@ -419,10 +500,11 @@
                 padding: 20px;
             }
             
-            .btn-whatsapp {
-                padding: 15px 30px;
+            .btn-whatsapp,
+            .btn-app {
+                padding: 16px 30px;
                 font-size: 1.1rem;
-                margin-bottom: 30px;
+                max-width: 100%;
             }
             
             .whatsapp-message {
@@ -439,6 +521,11 @@
             
             .social-title {
                 font-size: 1.4rem;
+            }
+            
+            .buttons-container {
+                gap: 10px;
+                margin: 20px 0;
             }
         }
     </style>
@@ -498,12 +585,23 @@
                          onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://chat.whatsapp.com/DGv5JGM9mxi7guamcOiMP3';">
                     <p class="qrcode-note text-center">Escaneie com seu celular</p>
                 </div>
-                
-                <a href="https://chat.whatsapp.com/DGv5JGM9mxi7guamcOiMP3" 
-                   target="_blank" 
-                   class="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> ENTRAR NO GRUPO AGORA
-                </a>
+
+                <!-- Container de Botões -->
+                <div class="buttons-container">
+                    <!-- Botão WhatsApp -->
+                    <a href="https://chat.whatsapp.com/DGv5JGM9mxi7guamcOiMP3" 
+                       target="_blank" 
+                       class="btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> ENTRAR NO GRUPO AGORA
+                    </a>
+
+                    <!-- Botão Aplicativo de Cadastro -->
+                    <a href="https://tuliomattos.github.io/sistema_juridico/" 
+                       target="_blank" 
+                       class="btn-app">
+                        <i class="fas fa-star"></i> ACESSAR APLICATIVO DE CADASTRO GRATUITO
+                    </a>
+                </div>
 
                 <!-- Seção Redes Sociais -->
                 <div class="social-section">
@@ -520,7 +618,7 @@
                         <div class="social-card facebook">
                             <i class="fab fa-facebook social-icon"></i>
                             <h3>Facebook Pessoal</h3>
-                            <p>Acompanhe meu perfil pessoal.</p>
+                            <p>Acompanhe meu perfil pessoal para insights, dicas e atualizações do dia a dia da advocacia moderna.</p>
                             <a href="https://www.facebook.com/tulio.mattos.104" target="_blank" class="social-link">
                                 <i class="fab fa-facebook-f"></i> SEGUIR NO FACEBOOK
                             </a>
@@ -530,7 +628,7 @@
                         <div class="social-card instagram">
                             <i class="fab fa-instagram social-icon"></i>
                             <h3>Instagram Pessoal</h3>
-                            <p>Acompanhae meu Instagram pessoal onde demonstro as publicações para os clientes do meu método.</p>
+                            <p>Conteúdo exclusivo sobre minha rotina, cases de sucesso e bastidores da advocacia empreendedora.</p>
                             <a href="https://www.instagram.com/tuliomattosadv/" target="_blank" class="social-link">
                                 <i class="fab fa-instagram"></i> SEGUIR NO INSTAGRAM
                             </a>
@@ -540,7 +638,7 @@
                         <div class="social-card curso">
                             <i class="fas fa-graduation-cap social-icon"></i>
                             <h3>Instagram do Método</h3>
-                            <p>Fique por dentro das novidades do Método Advocacia 5.0.</p>
+                            <p>Fique por dentro das novidades do Método Advocacia 5.0, depoimentos de alunos e conteúdos educativos.</p>
                             <a href="https://www.instagram.com/advocacia_5.0/" target="_blank" class="social-link">
                                 <i class="fab fa-instagram"></i> SEGUIR O MÉTODO
                             </a>
@@ -549,7 +647,13 @@
                 </div>
                 
                 <p style="margin-top: 30px; font-size: 1rem; color: var(--medium-gray); font-style: italic;">
-                    <i class="fas fa-heart"></i> Obrigado pelo seu interesse! Me siga para continuarmos essa conversa.
+                    <i class="fas fa-heart"></i> Obrigado pelo seu interesse! Teste nosso aplicativo gratuito e me siga para continuarmos essa conversa.
+                </p>
+                
+                <p style="margin-top: 15px; font-size: 0.9rem; color: var(--medium-gray); background: rgba(255, 215, 0, 0.1); padding: 15px; border-radius: 8px; border-left: 4px solid var(--gold-yellow);">
+                    <i class="fas fa-info-circle"></i> 
+                    <strong>O aplicativo de cadastro</strong> é oferecido gratuitamente a todos os alunos do método para gerenciar seu escritório. 
+                    Pode ser utilizado no computador ou no celular. Faça um teste e use gratuitamente!
                 </p>
             </div>
         </div>
@@ -558,7 +662,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>© 2026 Túlio Mattos - Advocacia 5.0. Todos os direitos reservados.</p>
+            <p>© 2024 Túlio Mattos - Advocacia 5.0. Todos os direitos reservados.</p>
             <p>OAB/SP 347.117</p>
             <p><a href="https://tuliomattos.github.io/advocacia5.0/" target="_blank">Acessar site completo do Método</a></p>
         </div>
@@ -570,6 +674,8 @@
             const videoWrapper = document.querySelector('.video-container-wrapper');
             const whatsappSection = document.querySelector('.whatsapp-section');
             const socialCards = document.querySelectorAll('.social-card');
+            const btnWhatsapp = document.querySelector('.btn-whatsapp');
+            const btnApp = document.querySelector('.btn-app');
             
             // Animação de entrada
             setTimeout(() => {
@@ -582,12 +688,22 @@
                 whatsappSection.style.transform = 'translateY(0)';
             }, 600);
             
+            setTimeout(() => {
+                btnWhatsapp.style.opacity = '1';
+                btnWhatsapp.style.transform = 'translateY(0)';
+            }, 800);
+            
+            setTimeout(() => {
+                btnApp.style.opacity = '1';
+                btnApp.style.transform = 'translateY(0)';
+            }, 1000);
+            
             // Animar cards sociais um por um
             socialCards.forEach((card, index) => {
                 setTimeout(() => {
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
-                }, 800 + (index * 200));
+                }, 1200 + (index * 200));
             });
             
             // Estilos iniciais para animação
@@ -599,6 +715,14 @@
             whatsappSection.style.transform = 'translateY(20px)';
             whatsappSection.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             
+            btnWhatsapp.style.opacity = '0';
+            btnWhatsapp.style.transform = 'translateY(20px)';
+            btnWhatsapp.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            
+            btnApp.style.opacity = '0';
+            btnApp.style.transform = 'translateY(20px)';
+            btnApp.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            
             socialCards.forEach(card => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(20px)';
@@ -609,16 +733,22 @@
             const viewCount = localStorage.getItem('videoViewCount') || 0;
             localStorage.setItem('videoViewCount', parseInt(viewCount) + 1);
             
-            // Acompanhamento de cliques nos links sociais
-            const socialLinks = document.querySelectorAll('.social-link, .btn-whatsapp');
-            socialLinks.forEach(link => {
+            // Acompanhamento de cliques
+            const trackingLinks = document.querySelectorAll('.btn-whatsapp, .btn-app, .social-link');
+            trackingLinks.forEach(link => {
                 link.addEventListener('click', function() {
-                    let platform = 'whatsapp';
+                    let type = 'other';
+                    if (this.classList.contains('btn-whatsapp')) type = 'whatsapp';
+                    if (this.classList.contains('btn-app')) type = 'app';
                     if (this.classList.contains('social-link')) {
-                        platform = this.closest('.social-card').classList[1];
+                        const card = this.closest('.social-card');
+                        type = card.classList[1];
                     }
-                    const clickCount = localStorage.getItem(`socialClick_${platform}`) || 0;
-                    localStorage.setItem(`socialClick_${platform}`, parseInt(clickCount) + 1);
+                    
+                    const clickCount = localStorage.getItem(`click_${type}`) || 0;
+                    localStorage.setItem(`click_${type}`, parseInt(clickCount) + 1);
+                    
+                    console.log(`Clicou em: ${type} - Total: ${parseInt(clickCount) + 1}`);
                 });
             });
         });
@@ -643,11 +773,22 @@
         // Verificar se o QR Code falhou ao carregar
         window.addEventListener('load', function() {
             const qrImage = document.querySelector('.qrcode-image');
-            if (qrImage.naturalHeight === 0) {
+            if (qrImage && qrImage.naturalHeight === 0) {
                 // QR Code falhou ao carregar, usar URL alternativa
                 qrImage.src = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://chat.whatsapp.com/DGv5JGM9mxi7guamcOiMP3';
             }
         });
+        
+        // Efeito de interação com o botão do aplicativo
+        const btnApp = document.querySelector('.btn-app');
+        if (btnApp) {
+            btnApp.addEventListener('mouseenter', function() {
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = 'gradientShift 3s infinite, pulse-gold 2s infinite';
+                }, 10);
+            });
+        }
     </script>
 </body>
 </html>
